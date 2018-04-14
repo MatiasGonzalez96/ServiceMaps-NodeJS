@@ -4,7 +4,7 @@ $(function()
 {
   $.get("data/servicios.json", function(data, status) 
   {
-    var id = getQueryVariable("id");
+    var id = obtenerParametroURL("id");
     if (id === false) 
     { 
       // Si se quiso acceder sin ningun id
@@ -44,6 +44,19 @@ function initMap() {
     position: ubicacionServicio,
     map: map
   });
+}
+
+function obtenerParametroURL(variable) 
+{
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split("=");
+    if (pair[0] == variable) {
+      return pair[1];
+    }
+  }
+  return(false);
 }
 
 function mostrarInformacionServicio()
