@@ -22,7 +22,7 @@
 
   </head>
 
-  <body>
+  <body onload="init()">
 
     <!-- Creo barra de busquedas -->
     <div class="topnav">
@@ -40,8 +40,18 @@
     </div> 
 
     <!-- Creo panel del mapa -->
-    <div id="panelMapa">
+    <div id="panelMapaServicios">
       <div id="map">    
+      </div>
+    </div>
+    <div id="main-container">
+      <div id="info-container">
+        <span id="direccionServicio" class="glyphicon glyphicon-map-marker"></span>
+        <span id="info-phone-text"></span>
+        <span id="info-time-text"></span>
+        <span id="info-happyhour-text"></span>
+        <span id="info-web-text"></span>
+        <span id="info-email-text"></span>
       </div>
     </div>
 

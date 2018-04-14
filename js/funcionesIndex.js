@@ -3,12 +3,30 @@ var idTema = 0;
 var servicioActual = "";
 var servicios;
 
+/*
 $(function() {
   $.get("data/servicios.json", function(data, status) {
     servicios = data;
     $("body").append("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>");   
   });
 });
+*/
+
+function init()
+{
+  var requestURL = "https://UNS-IAW-2018-COM08.github.io/Service-Maps/data/servicios.json";
+  var request = new XMLHttpRequest();
+  request.open('GET', requestURL);
+  request.responseType = 'json';
+  request.send();
+  request.onload = function()
+  {
+    servicios = request.response;
+    $("body").append("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>");
+  }
+}
+
+
 
 function initMap()
 {
@@ -51,10 +69,8 @@ function cargarMarcador(servicios, map)
 		animation: google.maps.Animation.DROP
 	});
 
-	marker.addListener('click', function() {
-    	//No van estas dos aca
-    	map.setZoom(14);
-    	map.setCenter(marker.getPosition());
+	marker.addListener('click', function()
+	{    	
     	window.location.href = this.url;		
   });
 }

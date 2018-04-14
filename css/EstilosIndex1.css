@@ -76,6 +76,31 @@ body
   font-size: 16px;
 }
 
+#panelMapaServicios 
+{
+  height: 350px;
+  width: 830px;  
+  margin: 50px auto;
+  padding: 10px;
+  background-color: grey;
+}
+
+#main-container {
+  height: auto;
+  width: 830px;
+  background-color: white;
+  margin: 50px auto;
+  padding: 10px;
+  box-shadow: 0 5px 30px black;
+}
+
+#info-container {
+  height: auto;
+  width: auto;
+  padding: 10px;
+  font-size: 21px;
+}
+
 /* Add a black background color to the top navigation */
 .topnav {
     position: relative;
