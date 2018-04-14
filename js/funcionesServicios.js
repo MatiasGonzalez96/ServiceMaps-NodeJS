@@ -25,6 +25,27 @@ $(function()
   });
 });
 
+function initMap() {
+  var ubicacionServicio = new google.maps.LatLng(servicios.latitud, servicios.longitud);
+  var map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 16,
+    center: ubicacionServicio,
+    styles: [
+      {
+        featureType: "poi",
+        elementType: "labels",
+        stylers: [
+          { visibility: "off" }
+        ]
+      }
+    ]
+  });
+  var marker = new google.maps.Marker({
+    position: ubicacionServicio,
+    map: map
+  });
+}
+
 function mostrarInformacionServicio()
 {
   var hoy = new Date().getDay();
