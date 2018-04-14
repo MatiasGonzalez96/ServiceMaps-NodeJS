@@ -17,7 +17,7 @@ $(function()
       if (obj !== undefined) 
       { 
       	servicios = obj;
-        mostrarInformacionServicio();
+        //mostrarInformacionServicio();
         //Cargo la api del mapa
         $("body").append("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>");
       }       
