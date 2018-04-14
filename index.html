@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+
+    <title>Service Maps</title>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="width=830">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="media/icon/index.ico">
+
+    <!-- Cargo links externos -->
+    <link id= "HojaDeEstilosIndex" href="css/EstilosIndex1.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    
+    <!-- Cargo scripts externos -->    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
+    <script type="text/javascript" src="js/funcionesIndex.js"></script>    
+
+  </head>
+
+  <body onload="recuperarTemaPaginaPrincipal()">
+
+    <!-- Creo barra de busquedas -->
+    <div class="topnav">
+      <!-- Centered link -->
+      <div class="topnav-centered">
+      </div>
+      <!-- Left-aligned links (default) -->
+      <a href="#" class="active">Inicio</a>
+      <a href="#" onclick="cambiarTemaClasico()">Tema Clásico</a>
+      <a href="#" onclick="cambiarTemaTurbo()">Tema Turbo</a>  
+      <!-- Right-aligned links -->
+      <div class="topnav-right">
+        <a href="#">Iniciar Sesión</a>
+      </div>
+    </div> 
+
+    <!-- Creo barra de busquedas -->
+    <nav>
+      <div id="panelBusqueda">
+        <form>
+          <input id="inputBusqueda" type="search" placeholder="Buscar servicio ..." aria-label="Buscar servicio">
+          <button id="botonBusqueda" type="submit" aria-label="Buscar">Buscar</button>
+        </form>
+      </div>
+    </nav>
+
+    <!-- Creo panel del mapa -->
+    <div id="panelMapa">
+      <div id="map">    
+      </div>
+    </div>
+
+    <!-- Creo Footer -->
+    <footer>
+        <div id="panelFooter">
+            Página web creada por García Matias y González Matias. © 2018 Service Maps.          
+        </div>
+    </footer>  
+
+  </body>
+</html>

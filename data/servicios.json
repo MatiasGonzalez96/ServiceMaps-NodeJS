@@ -1,0 +1,41 @@
+[
+	{
+	  "id" : "ypffull",
+	  "nombre" : "YPF Full",
+	  "tipo" : "Estacion de Servicio",
+	  "telefono" : "(0291) 4511821",
+	  "direccion" : "Alem 1820",
+	  "sitioweb" : "www.ypf.com",
+	  "horario" : "Abierto las 24hs",
+	  "puntuacion" : 4.9,
+	  "imagen" : "ypf.png",
+	  "latitud" : -38.695498,
+	  "longitud" : -62.276316	  
+	},
+	{
+	  "id" : "alvarezneumaticos",
+	  "nombre" : "Alvarez Neumaticos",
+	  "tipo" : "Gomería",
+	  "telefono" : "(0291) 4533172",
+	  "direccion" : "Brown 353",
+	  "sitioweb" : "www.alvarezneumaticos.com",
+	  "horario" : "De 08:00hs a 20:00hs",
+	  "puntuacion" : 4.5,
+	  "imagen" : "aneumaticos.png",
+	  "latitud" : -38.722998,
+	  "longitud" : -62.264528	  
+	},
+	{
+	  "id" : "tallerpasteur",
+	  "nombre" : "Taller Pasteur",
+	  "tipo" : "Taller Mecanico",
+	  "telefono" : "(0291) 4512799",
+	  "direccion" : "Pasteur 1350",
+	  "sitioweb" : "www.tallerpasteur.com",
+	  "horario" : "De 08:00hs a 20:00hs",
+	  "puntuacion" : 5.0,
+	  "imagen" : "tpasteur.png",
+	  "latitud" : -38.709984,
+	  "longitud" : -62.24744	  
+	}	   
+]
