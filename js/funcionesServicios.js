@@ -1,32 +1,5 @@
 var servicios;
 
-/*
-$(function() 
-{
-  $.get("data/servicios.json", function(data, status) 
-  {
-    var id = obtenerParametroURL("id");
-    if (id === false) 
-    { 
-      // Si se quiso acceder sin ningun id
-      window.location.replace("index.html");
-    } 
-    else 
-    {
-      // Buscar elemento usando jQuery
-      var obj = $.grep(data, function(obj){return obj.id === id;})[0]; 
-      if (obj !== undefined) 
-      { 
-      	servicios = obj;
-        //mostrarInformacionServicio();
-        //Cargo la api del mapa
-        $("body").append("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>");
-      }       
-    }
-  });
-});
-*/
-
 function init()
 {
   var requestURL = "https://UNS-IAW-2018-COM08.github.io/Service-Maps/data/servicios.json";

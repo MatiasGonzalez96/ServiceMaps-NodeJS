@@ -3,15 +3,6 @@ var idTema = 0;
 var servicioActual = "";
 var servicios;
 
-/*
-$(function() {
-  $.get("data/servicios.json", function(data, status) {
-    servicios = data;
-    $("body").append("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>");   
-  });
-});
-*/
-
 function init()
 {
   var requestURL = "https://UNS-IAW-2018-COM08.github.io/Service-Maps/data/servicios.json";
@@ -25,8 +16,6 @@ function init()
     $("body").append("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>");
   }
 }
-
-
 
 function initMap()
 {
