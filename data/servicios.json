@@ -1,6 +1,6 @@
 [
 	{
-	  "id" : "ypffull",
+	  "id" : "ypffullalem",
 	  "nombre" : "YPF Full",
 	  "tipo" : "Estación de Servicio",
 	  "telefono" : "(0291) 451-1821",
@@ -37,5 +37,18 @@
 	  "imagen" : "tpasteur.png",
 	  "latitud" : -38.709984,
 	  "longitud" : -62.24744	  
+	},
+	{
+	  "id" : "shellohiggins",
+	  "nombre" : "Shell",
+	  "tipo" : "Estación de Servicio",
+	  "telefono" : "(0291) 453-5050",
+	  "direccion" : "O'Higgins 401",
+	  "sitioweb" : "www.shellbahia.com.ar",
+	  "horario" : "Abierto las 24hs",
+	  "puntuacion" : 4.9,
+	  "imagen" : "shell.png",
+	  "latitud" : -38.723556 ,
+	  "longitud" : -62.270821	  
 	}	   
 ]
