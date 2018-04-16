@@ -1,6 +1,5 @@
 body
-{	
-  background: url('../media/imgs/fondo.jpg');
+{ 
   margin: 0 !important;
   padding: 0 !important;
   overflow: auto;
@@ -19,6 +18,35 @@ body
   margin: 50px auto;
   padding: 10px;
   background-color: grey;
+}
+
+#panelBotoneraFiltro
+{
+  height: 35px;
+  width: 550px;  
+  margin: 50px auto;
+  margin-top: 20px;
+}
+
+.botonFiltrar
+{
+  width: auto; 
+  height: 35px;
+  cursor: pointer;
+  border: none;
+  background-color: #f1f1f1;
+}
+
+.botonFiltrar:hover 
+{
+  outline: none;
+  background-color: dimgray;
+}
+
+.botonFiltrar.activo 
+{
+  background-color: #666;
+  color: white;
 }
 
 #panelBusqueda 
@@ -76,16 +104,33 @@ body
   font-size: 16px;
 }
 
+#panelDescripcionFiltros
+{
+  height: auto;
+  width: 350px;
+  text-align: center;
+  margin: 50px auto;
+  margin-bottom: 10px;
+}
+
+#textoInformacion
+{
+  font-size: 19pt;
+  color: white;
+  display: inline-block;  
+}
+
 #panelMapaServicios 
 {
-  height: 350px;
+  height: 300px;
   width: 830px;  
   margin: 50px auto;
   padding: 10px;
   background-color: grey;
 }
 
-#main-container {
+#panelServicios 
+{
   height: auto;
   width: 830px;
   background-color: white;
@@ -94,11 +139,195 @@ body
   box-shadow: 0 5px 30px black;
 }
 
-#info-container {
+#panelInformacion
+{
   height: auto;
   width: auto;
   padding: 10px;
   font-size: 21px;
+}
+
+#panelImagenServicio
+{
+  height: 250px;
+  width: 600px;
+  margin: 10px;
+  background-color: grey;
+  margin: 50px auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+#imagenServicio
+{
+  height: 230px;
+  width: 580px;
+}
+
+#etiquetaNombreServicio
+{
+  background-size: 20px;
+  background-position: left;
+  padding: 0 0 0 28px;
+}
+
+#etiquetaTipoServicio
+{
+  background-size: 20px;
+  background-position: left;
+  padding: 0 0 0 28px;
+}
+
+#etiquetaDireccionServicio
+{
+  background-size: 20px;
+  background-position: left;
+  padding: 0 0 0 28px;
+}
+
+#etiquetaTelefonoServicio
+{
+  background-size: 20px;
+  background-position: left;
+  padding: 0 0 0 28px;
+}
+
+#etiquetaHorarioServicio
+{
+  background-size: 20px;
+  background-position: left;
+  padding: 0 0 0 28px;
+}
+
+#etiquetaWebServicio
+{
+  background-size: 20px;
+  background-position: left;
+  padding: 0 0 0 28px;
+}
+
+#panelBotonera
+{
+  height: 35px;
+  width: 260px;
+  margin: 50px auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#botonComentar
+{ 
+  width: 125px; 
+  height: 35px;
+  cursor: pointer;
+  border: none;
+  background-color: grey;
+}
+
+#botonComentar:hover 
+{
+  outline: none;
+  background-color: dimgray;
+}
+
+#botonVolver
+{ 
+  width: 125px; 
+  height: 35px;
+  cursor: pointer;
+  border: none;
+  background-color: grey;
+}
+
+#botonVolver:hover 
+{
+  outline: none;
+  background-color: dimgray;
+}
+
+#panelGeneralComentarios
+{
+  height: 550px;
+  width: 830px;
+  margin: 50px auto;
+  background-color: grey;
+}
+
+#panelComentarios
+{
+  height: 100%;
+  width: 50%;
+  float: left;
+}
+
+#listaComentarios
+{
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+  resize: none;
+  background-color: #FFFFFF;
+}
+
+#panelFormulario
+{
+  height: 100%;
+  width: 50%;
+  float: right;
+  background-color: white;
+}
+
+#cajaNombre
+{
+  width: 90%;
+  margin: 20px auto;
+}
+
+#cajaApellido
+{
+  width: 90%;
+  margin: 20px auto;
+}
+
+#cajaComentarios
+{
+  width: 90%;
+  height: 200px;
+  margin: 20px;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+#panelBotoneraComentarios
+{
+  height: 35px;
+  width: 260px;
+  margin: 50px auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#botonPostear
+{ 
+  width: 125px; 
+  height: 35px;
+  cursor: pointer;
+  border: none;
+  background-color: gray;
+}
+
+#botonPostear:hover 
+{
+  outline: none;
+  background-color: dimgray;
+}
+
+#nombreServicio
+{
+  font-size: 15px;
+  margin: 20px auto;
+  text-align: center;
 }
 
 /* Add a black background color to the top navigation */

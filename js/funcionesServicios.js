@@ -1,8 +1,8 @@
-var servicios;
+var servicio;
 
-function init()
+$(function() 
 {
-  var requestURL = "https://UNS-IAW-2018-COM08.github.io/Service-Maps/data/servicios.json";
+  var requestURL = "https://uns-iaw-2018-com08.github.io/Service-Maps/data/servicios.json";
   var request = new XMLHttpRequest();
   request.open('GET', requestURL);
   request.responseType = 'json';
@@ -23,17 +23,18 @@ function init()
       var obj = $.grep(data, function(obj){return obj.id === id;})[0]; 
       if (obj !== undefined) 
       { 
-        servicios = obj;
-        //mostrarInformacionServicio();
+        servicio = obj;
+        cargarTema();
+        mostrarInformacionServicio();
         //Cargo la api del mapa
         $("body").append("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>");
       }       
     }
   }
-}
+});
 
 function initMap() {
-  var ubicacionServicio = new google.maps.LatLng(servicios.latitud, servicios.longitud);
+  var ubicacionServicio = new google.maps.LatLng(servicio.latitud, servicio.longitud);
   var map = new google.maps.Map(document.getElementById("map"), {
     zoom: 16,
     center: ubicacionServicio,
@@ -67,13 +68,40 @@ function obtenerParametroURL(variable)
   return(false);
 }
 
+function cargarTema()
+{
+  var id = localStorage.getItem("tema");
+      if (id != undefined) 
+      {
+        if (id == 1) 
+        {
+          $("#temaActual").attr("href", "css/turbo.css");
+        }
+      }
+}
+
 function mostrarInformacionServicio()
 {
-  var hoy = new Date().getDay();
+  //Cargo la informacion del servicio
+  document.getElementById("etiquetaNombreServicio").innerHTML += " <b>"+ servicio.nombre + "</b>";
+  document.getElementById("etiquetaTipoServicio").innerHTML += " <b>"+ servicio.tipo + "</b>";
+  document.getElementById("etiquetaDireccionServicio").innerHTML += " <b>"+ servicio.direccion + "</b>";
+  document.getElementById("etiquetaTelefonoServicio").innerHTML += " <b>"+ servicio.telefono + "</b>";
+  document.getElementById("etiquetaHorarioServicio").innerHTML += " <b>"+ servicio.horario + "</b>";
+  document.getElementById("etiquetaWebServicio").innerHTML += " <a class='info-link' href='http://" + servicio.sitioweb + "/' target='_blank' rel='noopener'>" + servicio.sitioweb + "</a>";
 
-  $("#info-bar-logo").attr("src", cerveceria.logo);
-  $("#info-bar-logo").attr("alt", "Logo " + cerveceria.nombre);
-  $("#info-bar-picture").attr("src", cerveceria.foto);
-  $("#info-bar-picture").attr("alt", "Foto " + cerveceria.nombre);
-
+  //Cargo la imagen del servicio
+  $("#imagenServicio").attr("src", "media/imgs/" + servicio.imagen);
 }
+
+$(function() {
+  $("#botonVolver").click(function() {
+    window.location.href = "index.html";
+  });
+});
+
+$(function() {
+  $("#botonComentar").click(function() {
+    window.location.href = "comentarios.html?id=" + servicio.id;
+  });
+});

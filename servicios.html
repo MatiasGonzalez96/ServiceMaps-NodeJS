@@ -10,56 +10,55 @@
     <link rel="shortcut icon" href="media/icon/index.ico">
 
     <!-- Cargo links externos -->
-    <link id= "HojaDeEstilosIndex" href="css/EstilosIndex1.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="css/estilos.css" rel="stylesheet">
+    <link href="css/clasico.css" rel="stylesheet" id="temaActual">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     
     <!-- Cargo scripts externos -->    
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
-    <script type="text/javascript" src="js/funcionesServicios.js"></script>
-    
+    <script type="text/javascript" src="js/funcionesServicios.js"></script>    
 
   </head>
-
-  <body onload="init()">
-
-    <!-- Creo barra de busquedas -->
-    <div class="topnav">
-      <!-- Centered link -->
-      <div class="topnav-centered">
-      </div>
-      <!-- Left-aligned links (default) -->
-      <a href="#" class="active">Inicio</a>
-      <a href="#" onclick="cambiarTemaClasico()">Tema Clásico</a>
-      <a href="#" onclick="cambiarTemaTurbo()">Tema Turbo</a>  
-      <!-- Right-aligned links -->
-      <div class="topnav-right">
-        <a href="#">Iniciar Sesión</a>
-      </div>
-    </div> 
+  <body>
 
     <!-- Creo panel del mapa -->
     <div id="panelMapaServicios">
       <div id="map">    
       </div>
     </div>
-    <div id="main-container">
-      <div id="info-container">
-        <span id="direccionServicio" class="glyphicon glyphicon-map-marker"></span>
-        <span id="info-phone-text"></span>
-        <span id="info-time-text"></span>
-        <span id="info-happyhour-text"></span>
-        <span id="info-web-text"></span>
-        <span id="info-email-text"></span>
+
+    <!-- Creo panel de los servicios -->
+    <div id="panelServicios">
+
+      <!-- Creo panel de la informacion -->
+      <div id="panelInformacion">
+        <h4 id="etiquetaNombreServicio"><span class="glyphicon glyphicon-home"></span> Nombre Servicio:</h4>
+        <h4 id="etiquetaTipoServicio"><span class="glyphicon glyphicon-cog"></span> Tipo:</h4>
+        <h4 id="etiquetaDireccionServicio"><span class="glyphicon glyphicon-map-marker"></span> Dirección:</h4>
+        <h4 id="etiquetaTelefonoServicio"><span class="glyphicon glyphicon-earphone"></span> Teléfono:</h4>
+        <h4 id="etiquetaHorarioServicio"><span class="glyphicon glyphicon-time"></span> Horario:</h4>
+        <h4 id="etiquetaWebServicio"><span class="glyphicon glyphicon-globe"></span> Sitio web:</h4>
+      </div>
+
+      <!-- Creo panel de la imagen -->
+      <div id="panelImagenServicio">
+        <img id="imagenServicio">
+      </div>
+
+      <!-- Creo panel de la botonera -->
+      <div id="panelBotonera">
+        <button id="botonComentar" type="button">Comentar</button>
+        <button id="botonVolver" type="button">Volver</button>
       </div>
     </div>
 
     <!-- Creo Footer -->
     <footer>
-        <div id="panelFooter">
-            Página web creada por García Matias y González Matias. © 2018 Service Maps.          
-        </div>
+      <div id="panelFooter">
+          Página web creada por García Matias y González Matias. © 2018 Service Maps.          
+      </div>
     </footer>  
 
   </body>

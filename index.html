@@ -10,7 +10,8 @@
     <link rel="shortcut icon" href="media/icon/index.ico">
 
     <!-- Cargo links externos -->
-    <link id= "HojaDeEstilosIndex" href="css/EstilosIndex1.css" type="text/css" rel="stylesheet">
+    <link href="css/estilos.css" rel="stylesheet">
+    <link href="css/clasico.css" rel="stylesheet" id="temaActual">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     
@@ -20,8 +21,7 @@
     <script type="text/javascript" src="js/funcionesIndex.js"></script>    
 
   </head>
-
-  <body onload="init()">
+  <body>
 
     <!-- Creo barra de busquedas -->
     <div class="topnav">
@@ -29,9 +29,9 @@
       <div class="topnav-centered">
       </div>
       <!-- Left-aligned links (default) -->
-      <a href="#" class="active">Inicio</a>
-      <a href="#" onclick="cambiarTemaClasico()">Tema Clásico</a>
-      <a href="#" onclick="cambiarTemaTurbo()">Tema Turbo</a>  
+      <a id="linkInicio" href="#" class="active">Inicio</a>
+      <a href="#" id="linkTemaClasico">Tema Clásico</a>
+      <a href="#" id="linkTemaTurbo">Tema Turbo</a>  
       <!-- Right-aligned links -->
       <div class="topnav-right">
         <a href="#">Iniciar Sesión</a>
@@ -54,11 +54,24 @@
       </div>
     </div>
 
+    <!-- Creo descripcion para el panel de botonera -->
+    <div id="panelDescripcionFiltros">
+      <span id="textoInformacion">¿Qué necesitas buscar?</span>
+    </div>
+
+    <!-- Creo panel de botonera para los filtros -->
+    <div id="panelBotoneraFiltro">
+      <button id="filtrarTodos" class="botonFiltrar activo" type="submit">Todos los Servicios</button>
+      <button id="filtrarEstaciones" class="botonFiltrar" type="submit">Estaciones de Servicio</button>
+      <button id="filtrarGomerias" class="botonFiltrar" type="submit">Gomerías</button>
+      <button id="filtrarTalleres" class="botonFiltrar" type="submit">Talleres Mecánicos</button>
+    </div>
+
     <!-- Creo Footer -->
     <footer>
-        <div id="panelFooter">
-            Página web creada por García Matias y González Matias. © 2018 Service Maps.          
-        </div>
+      <div id="panelFooter">
+          Página web creada por García Matias y González Matias. © 2018 Service Maps.          
+      </div>
     </footer>  
 
   </body>

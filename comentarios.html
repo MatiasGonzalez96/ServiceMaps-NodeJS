@@ -1,59 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="Proyecto/media/icon/comentarios.ico">
 
     <title>Comentarios</title>
 
-    <!-- Bootstrap -->
-    <link href="Proyecto/css/bootstrap.min.css" rel="stylesheet">
-    <link id= "HojaDeEstilosComentarios" href="Proyecto/css/EstilosComentarios1.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="Proyecto/js/funcionesComentarios.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="width=830">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="media/icon/comentarios.ico">    
+
+    <!-- Cargo links externos -->
+    <link href="css/estilos.css" rel="stylesheet">
+    <link href="css/clasico.css" rel="stylesheet" id="temaActual">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    
+    <!-- Cargo scripts externos -->    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
+    <script type="text/javascript" src="js/funcionesComentarios.js"></script>  
 
   </head>
-  <body onload="cargarFuncionesInicio()">
-    <div class="panel panel-default" id="panelGeneral">
-      <div class="panel-body ">
+  <body>
 
-        <!-- Panel Comentarios -->
-        <div class="panel panel-default" id= "panelComentarios">
-          <div class="panel-body" id= "panelComentarios">
-            <textarea disabled id="listaComentarios"></textarea>
-          </div>
+    <!-- Creo barra de busquedas -->
+    <div class="topnav">
+      <!-- Left-aligned links (default) -->
+      <a id="linkInicio" href="#" class="active">Inicio</a> 
+    </div> 
+
+    <!-- Panel Comentarios -->
+    <div id="panelGeneralComentarios">
+
+      <!-- Panel que muestra los comentarios -->
+      <div id= "panelComentarios">         
+        <textarea disabled id="listaComentarios"></textarea>
+      </div>
+
+      <!-- Panel Formulario -->
+      <div id= "panelFormulario">
+
+        <h4 id="nombreServicio">Nombre del Servicio: </h4>
+
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Nombre" id="cajaNombre">
         </div>
 
-        <!-- Panel Formulario -->
-        <div class="panel panel-default" id= "panelFormulario">
-          <div class="panel-body">
-
-            <h4 id="nombreServicio">Nombre del Servicio: </h4>
-
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Nombre" id="cajaNombre">
-            </div>
-
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Apellido" id="cajaApellido">
-            </div>
-
-            <textarea placeholder="Inserte comentario" id="cajaComentarios"></textarea>
-
-            <button type="button" class="btn btn-info" onclick="oyenteBotonPostear()">Postear</button>
-            <button type="button" class="btn btn-default" onclick="oyenteBotonVolver()">Volver</button>
-
-          </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Apellido" id="cajaApellido">
         </div>
 
+        <div>
+          <textarea placeholder="Inserte comentario..." id="cajaComentarios"></textarea>
+
+          <div id="panelBotoneraComentarios">
+            <button type="button" id="botonPostear">Postear</button>
+            <button type="button" id="botonVolver">Volver</button>
+          </div>
+
+        </div>
       </div>
     </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="Proyecto/js/bootstrap.min.js"></script>
+    <!-- Creo Footer -->
+    <footer>
+      <div id="panelFooter">
+          Página web creada por García Matias y González Matias. © 2018 Service Maps.          
+      </div>
+    </footer>  
 
   </body>
 </html>
