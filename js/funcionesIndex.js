@@ -12,6 +12,10 @@ $(function()
   request.onload = function()
   {
     servicios = request.response;
+    nombresServicios = obtenerNombresServicios();
+     $("#inputBusqueda").autocomplete({
+      source: nombresServicios
+    });
     var nombresServicios = obtenerNombresServicios(servicios);
     $("body").append("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>");
     cargarTema();
@@ -45,8 +49,7 @@ function initMap()
 	for (i = 0; i < servicios.length; i++) 
 	{
 	    cargarMarcador(servicios[i]);
-	}
-	
+	}	
 }
 
 function cargarMarcador(servicios)
@@ -173,8 +176,7 @@ $(function() {
   });
 });
 
-
-function obtenerNombresServicios(servicios) 
+function obtenerNombresServicios() 
 {
   var nombres = [];
   for (var i = 0; i < servicios.length; i++) 
@@ -182,6 +184,50 @@ function obtenerNombresServicios(servicios)
     nombres.push(servicios[i].nombre);
   }
   return nombres;
+}
+
+$(function() {
+  $("#inputBusqueda").keyup(function(event) {
+    if (event.keyCode === 13) {
+      if (inputValue.localeCompare("") != 0) {
+        buscarInput(inputValue);
+      }
+    }
+    return false;
+  });
+});
+
+$(function() {
+  $("#botonBusqueda").click(function() {
+    var inputValue = $("#inputBusqueda").val();
+    if (inputValue.localeCompare("") != 0) {
+      buscarInput(inputValue);
+    }
+    return false;
+  });
+});
+
+function buscarInput(value) 
+{
+  var id = obtenerIdServicio(value);
+  if (id !== undefined) {
+    window.location.href = "servicios.html?id=" + id;
+  } 
+  else 
+  {
+    window.location.href = "index.html";
+  }
+}
+
+function obtenerIdServicio(name) 
+{
+  var id;
+  var obj = $.grep(servicios, function(obj){return obj.nombre === name;})[0]; // Buscar elemento usando jQuery
+  if (obj !== undefined) 
+  {
+    id = obj.id;
+  }
+  return id;
 }
 
 $(function()

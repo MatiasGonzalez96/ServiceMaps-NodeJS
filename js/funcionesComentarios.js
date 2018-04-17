@@ -66,7 +66,7 @@ function cargarTema()
 
 function guardarComentarios()
 {
-	var comentarios = document.getElementById("listaComentarios").value;
+	var comentarios = document.getElementById("listaComentarios").innerHTML;
 	localStorage.setItem(servicio.nombre, comentarios);
 }
 
@@ -103,7 +103,7 @@ $(function() {
 				if (comentario != null && comentario != "")
 				{
 					var comentario = document.getElementById("cajaComentarios").value;
-					document.getElementById("listaComentarios").innerHTML += "Nombre: "+nombre+" "+apellido+"\nComentario: "+comentario +"\n";
+					document.getElementById("listaComentarios").innerHTML += "Nombre: <b>"+nombre+" "+apellido+"</b><br>Comentario: "+comentario +"<br>";
 					guardarComentarios();
 				}
 				else
