@@ -23,17 +23,19 @@ body
 #panelBotoneraFiltro
 {
   height: 35px;
-  width: 550px;  
+  width: 830px;  
   margin: 50px auto;
   margin-top: 20px;
 }
 
 .botonFiltrar
 {
-  width: auto; 
+  width: 200px; 
   height: 35px;
   cursor: pointer;
   border: none;
+  text-align: center;
+  margin-left: 3px;
   background-color: #f1f1f1;
 }
 
