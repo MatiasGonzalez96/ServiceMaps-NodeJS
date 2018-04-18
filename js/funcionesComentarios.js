@@ -1,10 +1,8 @@
-var servicioActual = "";
-var temaActual = "";
 var servicio;
 
 window.onload = function() 
 {
-	var requestURL = "https://uns-iaw-2018-com08.github.io/Service-Maps/data/servicios.json";
+  var requestURL = "https://uns-iaw-2018-com08.github.io/Service-Maps/data/servicios.json";
   var request = new XMLHttpRequest();
   request.open('GET', requestURL);
   request.responseType = 'json';
@@ -93,7 +91,7 @@ $(function() {
 
 $(function() {
   $("#botonPostear").click(function() {
-	  var nombre = document.getElementById("cajaNombre").value;
+	  	var nombre = document.getElementById("cajaNombre").value;
 		if (nombre != null && nombre != "")
 		{
 			var apellido = document.getElementById("cajaApellido").value;
@@ -103,8 +101,14 @@ $(function() {
 				if (comentario != null && comentario != "")
 				{
 					var comentario = document.getElementById("cajaComentarios").value;
-					document.getElementById("listaComentarios").innerHTML += "Nombre: <b>"+nombre+" "+apellido+"</b><br>Comentario: "+comentario +"<br>";
+
+					//Creo el panel con el comentario
+					var midiv = document.createElement("div");
+					midiv.setAttribute("id","panelFormatoComentario");
+					midiv.innerHTML = "<b>"+nombre+" "+apellido+"</b><br>"+ comentario +"<br>";
+					document.getElementById("listaComentarios").appendChild(midiv);
 					guardarComentarios();
+
 				}
 				else
 				{
@@ -122,3 +126,4 @@ $(function() {
 		}
   });
 });
+
