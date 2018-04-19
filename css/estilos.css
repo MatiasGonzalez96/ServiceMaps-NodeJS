@@ -21,6 +21,11 @@ body
   background-color: grey;
 }
 
+#botonGoogle
+{
+  margin: 50px auto;
+}
+
 #panelBotoneraFiltro
 {
   height: 35px;
