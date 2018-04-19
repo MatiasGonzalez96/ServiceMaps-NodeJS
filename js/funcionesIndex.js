@@ -102,6 +102,12 @@ $(function() {
 });
 
 $(function() {
+  $("#linkLogin").click(function() {
+    window.location.href = "login.html";
+  });
+});
+
+$(function() {
   $("#linkTemaClasico").click(function() {    
    	$("#temaActual").attr("href","css/clasico.css");
 	localStorage.setItem("tema",0);
