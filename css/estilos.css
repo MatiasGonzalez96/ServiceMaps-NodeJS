@@ -16,6 +16,7 @@ body
   height: 500px;
   width: 830px;  
   margin: 50px auto;
+  margin-top: 20px;
   padding: 10px;
   background-color: grey;
 }
@@ -31,7 +32,7 @@ body
 .botonFiltrar
 {
   width: 200px; 
-  height: 35px;
+  height: 45px;
   cursor: pointer;
   border: none;
   text-align: center;
@@ -51,21 +52,40 @@ body
   color: white;
 }
 
+#panelBanner
+{
+  height: 110px;
+  width: 900px;
+  margin: 50px auto;
+  border: none;
+  background-color: grey;
+  padding: 5px;
+}
+
+#imagenBanner 
+{
+  width: 100%;
+  height: 100px;
+  background-size: 100%;
+  background-position: center;
+}
+
 #panelBusqueda 
 {
   height: 50px;
-  width: 830px;
+  width: 600px;
   margin: 50px auto;
   margin-top: 100px;
+  margin-bottom: 25px;
 }
 
 #inputBusqueda
 {
-  height: 50px;
-  width: 750px;
+  height: 35px;
+  width: 500px;
   background-color: white;
-  padding: 20px;
   font-size: 20px;
+  padding: 10px;
   border: none;
   outline: none;
 }
@@ -78,7 +98,7 @@ body
 
 #botonBusqueda 
 {
-  height: 50px;
+  height: 35px;
   width: 80px;
   background-size: 30px;
   background-position: center;
@@ -117,7 +137,7 @@ body
 
 #textoInformacion
 {
-  font-size: 19pt;
+  font-size: 20pt;
   color: white;
   display: inline-block;  
 }
@@ -135,10 +155,9 @@ body
 {
   height: auto;
   width: 830px;
-  background-color: white;
+  background-color: #BDBDBD;
   margin: 50px auto;
   padding: 10px;
-  box-shadow: 0 5px 30px black;
 }
 
 #panelInformacion
@@ -337,10 +356,8 @@ body
   width: 95%;
   height: auto;
   margin: 10px auto;
-  margin-top: 0px;
-  background-color: #E6E6E6;
-  text-align: center;
-  font-size: 15pt;
+  background-color: #D8D8D8;
+  padding: 20px;
 }
 
 /* Add a black background color to the top navigation */
