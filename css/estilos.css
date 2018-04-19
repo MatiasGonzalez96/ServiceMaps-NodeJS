@@ -54,20 +54,16 @@ body
 
 #panelBanner
 {
-  height: 110px;
-  width: 900px;
+  height: 150px;
+  width: 830px;
   margin: 50px auto;
   border: none;
-  background-color: grey;
-  padding: 5px;
 }
 
 #imagenBanner 
 {
   width: 100%;
-  height: 100px;
-  background-size: 100%;
-  background-position: center;
+  height: 100%;
 }
 
 #panelBusqueda 
@@ -84,7 +80,7 @@ body
   height: 35px;
   width: 500px;
   background-color: white;
-  font-size: 20px;
+  font-size: 15px;
   padding: 10px;
   border: none;
   outline: none;
