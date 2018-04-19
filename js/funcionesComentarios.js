@@ -105,7 +105,7 @@ $(function() {
 					//Creo el panel con el comentario
 					var midiv = document.createElement("div");
 					midiv.setAttribute("id", "panelFormatoComentario");
-					midiv.innerHTML = "<h5> <b>"+ nombre +" "+ apellido +"</b> </h5> <hr> <h6>"+ comentario + "</h6>";
+					midiv.innerHTML = "<h5> <b>"+ nombre +" "+ apellido +"</b> </hs> <hr> <h6>"+ comentario + "</h6>";
 					document.getElementById("listaComentarios").appendChild(midiv);
 
 					guardarComentarios();
