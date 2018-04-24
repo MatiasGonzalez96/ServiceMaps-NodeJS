@@ -2,7 +2,7 @@ var servicio;
 
 $(function() 
 {
-  var requestURL = "https://uns-iaw-2018-com08.github.io/Service-Maps/data/servicios.json";
+  var requestURL = "https://uns-iaw-2018-com08.github.io/ServiceMaps/data/servicios.json";
   var request = new XMLHttpRequest();
   request.open('GET', requestURL);
   request.responseType = 'json';
