@@ -47,7 +47,7 @@ function obtenerParametroURL(variable)
 
 function agregarNombreServicio()
 {
-	document.getElementById("nombreServicio").innerHTML += "<b>"+ servicio.nombre +"</b>";
+	document.getElementById("nombreServicio").innerHTML += servicio.nombre +"!";
 }
 
 function cargarTema()
@@ -84,8 +84,28 @@ $(function() {
 });
 
 $(function() {
-  $("#botonVolver").click(function() {
+  $("#botonVolverComentario").click(function() {
     window.location.href = "servicios.html?id=" + servicio.id;
+  });
+});
+
+$(function() {
+  $("#botonVerComentarios").click(function() {
+  	var t = localStorage.getItem(servicio.nombre);
+	if (t != null)
+	{
+		$("#panelComentarios").show();
+	} 
+	else
+	{
+		alert("No hay comentarios para mostrar");
+	}   
+  });
+});
+
+$(function() {
+  $("#botonOcultarComentarios").click(function() {
+    $("#panelComentarios").hide();
   });
 });
 
@@ -109,6 +129,19 @@ $(function() {
 					document.getElementById("listaComentarios").appendChild(midiv);
 
 					guardarComentarios();
+
+					$("#cajaNombre").attr("placeholder", "Nombre*");
+					document.getElementById("cajaNombre").value = "";
+
+					$("#cajaApellido").attr("placeholder", "Apellido*");
+					document.getElementById("cajaApellido").value = "";
+
+					$("#cajaComentarios").attr("placeholder", "Inserte comentario*");
+					document.getElementById("cajaComentarios").value = "";
+
+					alert("Comentario cargado con éxito");
+
+					$("#panelComentarios").show();
 
 				}
 				else

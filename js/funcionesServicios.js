@@ -21,7 +21,11 @@ $(function()
     {
       // Buscar elemento usando jQuery
       var obj = $.grep(data, function(obj){return obj.id === id;})[0]; 
-      if (obj !== undefined) 
+      if(obj === undefined)
+      {
+        mostrarMensajeError(id);        
+      }
+      else 
       { 
         servicio = obj;
         cargarTema();
@@ -83,25 +87,43 @@ function cargarTema()
 function mostrarInformacionServicio()
 {
   //Cargo la informacion del servicio
-  document.getElementById("etiquetaNombreServicio").innerHTML += " <b>"+ servicio.nombre + "</b>";
-  document.getElementById("etiquetaTipoServicio").innerHTML += " <b>"+ servicio.tipo + "</b>";
-  document.getElementById("etiquetaDireccionServicio").innerHTML += " <b>"+ servicio.direccion + "</b>";
-  document.getElementById("etiquetaTelefonoServicio").innerHTML += " <b>"+ servicio.telefono + "</b>";
-  document.getElementById("etiquetaHorarioServicio").innerHTML += " <b>"+ servicio.horario + "</b>";
-  document.getElementById("etiquetaWebServicio").innerHTML += " <a class='info-link' href='http://" + servicio.sitioweb + "/' target='_blank' rel='noopener'>" + servicio.sitioweb + "</a>";
+  document.getElementById("nombreServicio").innerHTML += "<b>"+ servicio.nombre + "</b>";
+  document.getElementById("tipoServicio").innerHTML += " <b>"+ servicio.tipo + "</b>";
+  document.getElementById("direccionServicio").innerHTML += " <b>"+ servicio.direccion + "</b>";
+  document.getElementById("telefonoServicio").innerHTML += " <b>"+ servicio.telefono + "</b>";
+  document.getElementById("horarioServicio").innerHTML += " <b>"+ servicio.horario + "</b>";
+  document.getElementById("webServicio").innerHTML += " <a class='info-link' href='http://" + servicio.sitioweb + "/' target='_blank' rel='noopener'>" + servicio.sitioweb + "</a>";
 
   //Cargo la imagen del servicio
   $("#imagenServicio").attr("src", "media/imgs/" + servicio.imagen);
 }
 
+function mostrarMensajeError(id)
+{
+  ocultarPaneles();
+
+  var midiv = document.getElementById("panelMapaServicios");
+  midiv.setAttribute("id","panelError");
+
+  $("#panelError").html("<span id='etiquetaError'><b> No se encontró la búsqueda </b> \"<b>" + id + "</b>\"</span>");
+  
+  var stringAviso = "Ingrese correctamente el nombre del servicio (respetando mayúsculas y minúsculas)";
+  $("#panelError").append("<span id='etiquetaAviso'>"+ stringAviso + "</span>");
+}
+
+function ocultarPaneles()
+{
+  $("#panelServicios").hide();
+}
+
 $(function() {
-  $("#botonVolver").click(function() {
-    window.location.href = "index.html";
+  $("#botonComentar").click(function() {
+    window.location.href = "comentar.html?id=" + servicio.id;
   });
 });
 
 $(function() {
-  $("#botonComentar").click(function() {
-    window.location.href = "comentarios.html?id=" + servicio.id;
+  $("#linkInicio").click(function() {
+    window.location.href = "index.html";
   });
 });

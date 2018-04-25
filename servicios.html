@@ -9,7 +9,8 @@
     <link rel="shortcut icon" href="media/icon/favicon.ico">
 
     <!-- Cargo links externos -->
-    <link href="css/estilos.css" rel="stylesheet">
+    <link href="css/estilosServicios.css" rel="stylesheet">
+    <link href="css/estilosTopnav.css" rel="stylesheet">
     <link href="css/clasico.css" rel="stylesheet" id="temaActual">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -22,6 +23,12 @@
   </head>
   <body>
 
+    <!-- Creo barra de busquedas -->
+    <div class="topnav">
+      <!-- Left-aligned links (default) -->
+      <a id="linkInicio" href="#" class="active">Inicio</a> 
+    </div>
+
     <!-- Creo panel del mapa -->
     <div id="panelMapaServicios">
       <div id="map">    
@@ -31,26 +38,37 @@
     <!-- Creo panel de los servicios -->
     <div id="panelServicios">
 
-      <!-- Creo panel de la informacion -->
-      <div id="panelInformacion">
-        <h4 id="etiquetaNombreServicio"><span class="glyphicon glyphicon-home"></span> Nombre Servicio:</h4>
-        <h4 id="etiquetaTipoServicio"><span class="glyphicon glyphicon-cog"></span> Tipo:</h4>
-        <h4 id="etiquetaDireccionServicio"><span class="glyphicon glyphicon-map-marker"></span> Dirección:</h4>
-        <h4 id="etiquetaTelefonoServicio"><span class="glyphicon glyphicon-earphone"></span> Teléfono:</h4>
-        <h4 id="etiquetaHorarioServicio"><span class="glyphicon glyphicon-time"></span> Horario:</h4>
-        <h4 id="etiquetaWebServicio"><span class="glyphicon glyphicon-globe"></span> Sitio web:</h4>
+      <!-- Creo descripcion para el panel de botonera -->
+      <div id="panelNombreServicio">
+        <span id="nombreServicio"></span>
       </div>
 
-      <!-- Creo panel de la imagen -->
-      <div id="panelImagenServicio">
-        <img id="imagenServicio">
+      <div id="panelInfoImagen">
+
+        <!-- Creo panel de la informacion -->
+        <div id="panelInformacion">
+
+          <!-- Creo las etiquetas -->
+          <h4 class="etiqueta" id="tipoServicio"><span class="glyphicon glyphicon-cog"></span> Tipo:</h4>
+          <h4 class="etiqueta" id="direccionServicio"><span class="glyphicon glyphicon-map-marker"></span> Dirección:</h4>
+          <h4 class="etiqueta" id="telefonoServicio"><span class="glyphicon glyphicon-earphone"></span> Teléfono:</h4>
+          <h4 class="etiqueta" id="horarioServicio"><span class="glyphicon glyphicon-time"></span> Horario:</h4>
+          <h4 class="etiqueta" id="webServicio"><span class="glyphicon glyphicon-globe"></span> Sitio web:</h4>
+
+          <!-- Creo panel de la botonera -->
+          <div id="panelBotoneraServicios">
+            <button id="botonComentar" type="button">Comentar</button>
+          </div>
+
+        </div>
+
+        <!-- Creo panel de la imagen -->
+        <div id="panelImagenServicio">
+          <img id="imagenServicio">
+        </div>
+
       </div>
 
-      <!-- Creo panel de la botonera -->
-      <div id="panelBotonera">
-        <button id="botonComentar" type="button">Comentar</button>
-        <button id="botonVolver" type="button">Volver</button>
-      </div>
     </div>
 
     <!-- Creo Footer -->

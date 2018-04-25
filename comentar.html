@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+
+    <title>Comentar</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=830">
+    <link rel="shortcut icon" href="media/icon/favicon.ico">    
+
+    <!-- Cargo links externos -->
+    <link href="css/estilosComentar.css" rel="stylesheet">
+    <link href="css/estilosTopnav.css" rel="stylesheet">
+    <link href="css/clasico.css" rel="stylesheet" id="temaActual">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    
+    <!-- Cargo scripts externos -->    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
+    <script type="text/javascript" src="js/funcionesComentar.js"></script>  
+
+  </head>
+  <body>
+
+    <!-- Creo barra de busquedas -->
+    <div class="topnav">
+      <!-- Left-aligned links (default) -->
+      <a id="linkInicio" href="#" class="active">Inicio</a> 
+    </div> 
+
+    <!-- Etiqueta para identificar el servicio -->
+    <h4 id="nombreServicio">¡Deje su comentario a </h4>
+
+    <!-- Panel Formulario -->
+    <div id= "panelFormulario">        
+
+      <!-- Panel con las cajas Nombre y Apellido -->
+      <div id="panelNombreApellido">
+
+        <!-- Caja nombre -->
+        <div class="form-group">
+          <input id="cajaNombre" type="text" class="form-control" placeholder="Nombre*">
+        </div>
+
+        <!-- Caja apellido -->
+        <div class="form-group">
+          <input id="cajaApellido" type="text" class="form-control" placeholder="Apellido*">
+        </div>
+
+      </div>
+
+      <div>
+
+        <!-- Caja para comentarios -->
+        <textarea placeholder="Inserte comentario*" id="cajaComentarios"></textarea>
+
+        <!-- Panel para la botonera -->
+        <div id="panelBotoneraComentarios">
+          <button type="button" class="botonComentarios" id="botonPostear">Postear</button>
+          <button type="button" class="botonComentarios" id="botonVerComentarios">Mostrar</button>
+          <button type="button" class="botonComentarios" id="botonOcultarComentarios">Ocultar</button>
+          <button type="button" class="botonComentarios" id="botonVolverComentario">Volver</button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Panel que muestra los comentarios -->
+    <div id= "panelComentarios">
+      <div id="listaComentarios">
+      </div>
+    </div>
+
+    <!-- Creo Footer -->
+    <footer>
+      <div id="panelFooter">
+          Página web creada por García Matias y González Matias. © 2018 Service Maps.          
+      </div>
+    </footer>  
+
+  </body>
+</html>

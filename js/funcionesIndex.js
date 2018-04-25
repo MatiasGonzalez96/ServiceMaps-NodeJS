@@ -209,6 +209,10 @@ $(function() {
     if (inputValue.localeCompare("") != 0) {
       buscarInput(inputValue);
     }
+    else
+    {
+      alert("Ingrese un servicio para buscar")
+    }
     return false;
   });
 });
@@ -221,7 +225,7 @@ function buscarInput(value)
   } 
   else 
   {
-    window.location.href = "index.html";
+    window.location.href = "servicios.html?id=" + value.toLowerCase().replace(/\s+/g, '_');
   }
 }
 
