@@ -46,10 +46,16 @@
           {
             document.getElementById("panelLogin").innerHTML = 'We are connected';
           }
-          else if (response.status === 'not_authorized')
-          {
-            document.getElementById("panelLogin").innerHTML = 'We are not logged in';
-          }
+          else 
+            if (response.status === 'not_authorized')
+            {
+             document.getElementById("panelLogin").innerHTML = 'We are not logged in';
+            }
+            else
+            {
+              document.getElementById("panelLogin").innerHTML = 'You are not logged into Facebook';
+            }
+
         });
 
       };
@@ -61,10 +67,7 @@
          js.src = "https://connect.facebook.net/en_US/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
-    </script>  
-
-    <div id="status">
-    </div>
+    </script> 
 
     <!-- Creo Footer -->
     <footer>
