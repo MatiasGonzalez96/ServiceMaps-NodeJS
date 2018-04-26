@@ -75,6 +75,15 @@ $(function() {
 });
 
 $(function() {
+  $("#botonObtenerInfo").click(function() {
+    FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id'}, function(response)
+    {
+      document.getElementById("panelLogin").innerHTML = response.id;
+    });
+  });
+});
+
+$(function() {
   $("#linkInicio").click(function() {
     window.location.href = "index.html";
   });
