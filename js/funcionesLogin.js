@@ -16,6 +16,12 @@ function cargarTema()
 }
 
 $(function() {
+  $("#botonFbLogin").click(function() {
+    window.location.href = "index.html";
+  });
+});
+
+$(function() {
   $("#linkInicio").click(function() {
     window.location.href = "index.html";
   });
