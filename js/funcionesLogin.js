@@ -55,7 +55,22 @@ function cargarTema()
 
 $(function() {
   $("#botonFbLogin").click(function() {
-    window.location.href = "index.html";
+    FB.login(function(response )
+    {
+      if (response.status === 'connected' )
+        {
+          document.getElementById("panelLogin").innerHTML = 'We are connected';
+        }
+        else 
+          if (response.status === 'not_authorized')
+          {
+           document.getElementById("panelLogin").innerHTML = 'We are not logged in';
+          }
+          else
+          {
+            document.getElementById("panelLogin").innerHTML = 'You are not logged into Facebook';
+          }
+    });
   });
 });
 
