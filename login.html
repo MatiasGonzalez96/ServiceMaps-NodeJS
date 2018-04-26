@@ -44,11 +44,11 @@
         FB.getLoginStatus(function(response){
           if (response.status === 'connected' )
           {
-            getElementById("status").innerHTML = 'We are connected';
+            document.getElementById("status").innerHTML = 'We are connected';
           }
           else if (response.status === 'not_authorized')
           {
-            getElementById("status").innerHTML = 'We are not logged in';
+            document.getElementById("status").innerHTML = 'We are not logged in';
           }
         });
 
