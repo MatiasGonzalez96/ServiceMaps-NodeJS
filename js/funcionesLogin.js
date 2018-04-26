@@ -78,7 +78,7 @@ $(function() {
   $("#botonObtenerInfo").click(function() {
     FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id'}, function(response)
     {
-      document.getElementById("panelLogin").innerHTML = response.id;
+      document.getElementById("panelLogin").innerHTML = response.first_name + response.last_name;
     });
   });
 });
