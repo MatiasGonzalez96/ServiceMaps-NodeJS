@@ -19,7 +19,7 @@ body
 #panelComentarios
 {
   height: 300px;
-  width: 830px;
+  width: 860px;
   margin: 50px auto;
   background-color: #BDBDBD;
   padding: 10px;
@@ -37,7 +37,7 @@ body
 
 #panelFormulario
 {
-  width: 830px;
+  width: 860px;
   height: auto;
   margin: 50px auto;
   background-color: #BDBDBD;
