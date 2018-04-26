@@ -5,9 +5,12 @@ body
   overflow: auto;
 }
 
-#botonGoogle
+#panelLogin
 {
+  width: 900px;
+  height: 400px;
   margin: 50px auto;
+  background-color: white;
 }
 
 #panelFooter 
