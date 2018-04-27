@@ -9,50 +9,51 @@ window.onload = function()
   request.send();
   request.onload = function()
   {
-    var data = request.response;
-    var id = obtenerParametroURL("id");
+	    var data = request.response;
+	    var id = obtenerParametroURL("id");
 
 		if (id === false) 
-	  { 
-	    // Si se quiso acceder sin ningun id
-	    window.location.replace("index.html");
-	  } 
-	  else
-	  {
-	    // Buscar elemento usando jQuery
-	    var obj = $.grep(data, function(obj){return obj.id === id;})[0]; 
-	    if (obj !== undefined) 
 	    { 
-	      servicio = obj;
-	      cargarTema();
-	      recuperarComentarios();
-	      agregarNombreServicio();
+	    	// Si se quiso acceder sin ningun id
+	    	window.location.replace("index.html");
+	 	} 
+	  	else
+	  	{
+	    	// Buscar elemento usando jQuery
+	    	var obj = $.grep(data, function(obj){return obj.id === id;})[0]; 
+	    	if (obj !== undefined) 
+	    	{ 
+	    	  servicio = obj;
+	    	  cargarNombreServicio();
+	    	  recuperarComentarios();
+	    	} 
 	    }
-	  } 
-	}
+   }
 }
 
 function obtenerParametroURL(variable) 
 {
   var query = window.location.search.substring(1);
   var vars = query.split("&");
-  for (var i = 0; i < vars.length; i++) {
+  for (var i = 0; i < vars.length; i++) 
+  {
     var pair = vars[i].split("=");
-    if (pair[0] == variable) {
+    if (pair[0] == variable) 
+    {
       return pair[1];
     }
   }
   return(false);
 }
 
-function agregarNombreServicio()
+function cargarNombreServicio()
 {
 	document.getElementById("nombreServicio").innerHTML += servicio.nombre +"!";
 }
 
-function cargarTema()
+$(function() 
 {
-	var id = localStorage.getItem("tema");
+  var id = localStorage.getItem("tema");
       if (id != undefined) 
       {
         if (id == 1) 
@@ -60,7 +61,7 @@ function cargarTema()
           $("#temaActual").attr("href", "css/turbo.css");
         }
       }
-}
+});
 
 function guardarComentarios()
 {
@@ -68,7 +69,7 @@ function guardarComentarios()
 	localStorage.setItem(servicio.nombre, comentarios);
 }
 
-function recuperarComentarios()
+function recuperarComentarios() 
 {
 	var t = localStorage.getItem(servicio.nombre);
 	if (t != null)
@@ -160,4 +161,3 @@ $(function() {
 		}
   });
 });
-

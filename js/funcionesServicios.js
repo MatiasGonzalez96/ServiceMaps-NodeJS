@@ -28,7 +28,6 @@ $(function()
       else 
       { 
         servicio = obj;
-        cargarTema();
         mostrarInformacionServicio();
         //Cargo la api del mapa
         $("body").append("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>");
@@ -72,7 +71,7 @@ function obtenerParametroURL(variable)
   return(false);
 }
 
-function cargarTema()
+$(function() 
 {
   var id = localStorage.getItem("tema");
       if (id != undefined) 
@@ -82,7 +81,7 @@ function cargarTema()
           $("#temaActual").attr("href", "css/turbo.css");
         }
       }
-}
+});
 
 function mostrarInformacionServicio()
 {

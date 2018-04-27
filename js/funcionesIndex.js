@@ -18,7 +18,6 @@ $(function()
     });
     var nombresServicios = obtenerNombresServicios(servicios);
     $("body").append("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>");
-    cargarTema();
   }
 });
 
@@ -83,17 +82,16 @@ function cargarMarcador(servicios)
   marcadores.push(marker);
 }
 
-function cargarTema()
-{
-	var id = localStorage.getItem("tema");
-    if (id != undefined) 
-    {
-      if (id == 1) 
+$(function() {
+  var id = localStorage.getItem("tema");
+      if (id != undefined) 
       {
-        $("#temaActual").attr("href", "css/turbo.css");
+        if (id == 1) 
+        {
+          $("#temaActual").attr("href", "css/turbo.css");
+        }
       }
-    }
-}
+});
 
 $(function() {
   $("#linkInicio").click(function() {

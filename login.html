@@ -28,22 +28,14 @@
       <a id="linkInicio" href="#" class="active">Inicio</a> 
     </div>    
 
-    <!-- Creo panel para los botones -->
+    <!-- Creo panel para el boton -->
     <div id="panelLogin">
 
-      <!-- Creo boton para conectar con FaceBook -->
- 
+      <!-- Creo boton para conectar con FaceBook --> 
+      <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+      </fb:login-button>
 
     </div>  
-
-          <button id="botonFbLogin">Login</button> 
-      <button id="botonObtenerInfo">Get Info</button>
-
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-    </fb:login-button>
-
-    <div id="status">
-    </div>
 
     <!-- Creo Footer -->
     <footer>
