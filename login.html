@@ -31,13 +31,16 @@
     <!-- Creo panel para el boton -->
     <div id="panelLogin">
 
-      
+      <div id="panelEstado">
+      </div>
+
+      <!-- Creo boton para conectar con Facebook --> 
+      <fb:login-button id="botonFacebook" scope="public_profile,email" onlogin="checkLoginState();">
+      </fb:login-button> 
 
     </div> 
 
-    <!-- Creo boton para conectar con FaceBook --> 
-      <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-      </fb:login-button> 
+
 
     <!-- Creo Footer -->
     <footer>

@@ -25,16 +25,16 @@ $(function()
     {
       if (response.status === 'connected' )
         {
-          document.getElementById("panelLogin").innerHTML = 'We are connected';
+          document.getElementById("panelEstado").innerHTML = 'We are connected';
         }
         else 
           if (response.status === 'not_authorized')
           {
-           document.getElementById("panelLogin").innerHTML = 'We are not logged in';
+           document.getElementById("panelEstado").innerHTML = 'We are not logged in';
           }
           else
           {
-            document.getElementById("panelLogin").innerHTML = 'You are not logged into Facebook';
+            document.getElementById("panelEstado").innerHTML = 'You are not logged into Facebook';
           }
     });
   });
@@ -57,7 +57,7 @@ function statusChangeCallback(response)
     } else 
     {
       // The person is not logged into your app or we are unable to tell.
-      document.getElementById('panelLogin').innerHTML = 'Please log into this app.';
+      document.getElementById('panelEstado').innerHTML = 'Please log into this app.';
     }
 }
 
@@ -65,7 +65,7 @@ function testAPI()
 {
   FB.api('/me', function(response) 
   {
-    document.getElementById('panelLogin').innerHTML = 'Thanks for logging in, ' + response.name + '!';
+    document.getElementById('panelEstado').innerHTML = 'Thanks for logging in, ' + response.name + '!';
   });
 }
 
