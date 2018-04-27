@@ -106,20 +106,6 @@ $(function() {
 });
 
 $(function() {
-  $("#linkTemaClasico").click(function() {    
-   	$("#temaActual").attr("href","css/clasico.css");
-	localStorage.setItem("tema",0);
-  });
-});
-
-$(function() {
-  $("#linkTemaTurbo").click(function() {    
-	$("#temaActual").attr("href","css/turbo.css");
-	localStorage.setItem("tema",1);
-  });
-});
-
-$(function() {
   $("#filtrarTodos").click(function() {
     for(var i = 0; i < marcadores.length; i++)
     {
