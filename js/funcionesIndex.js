@@ -100,12 +100,6 @@ $(function() {
 });
 
 $(function() {
-  $("#linkLogin").click(function() {
-    window.location.href = "login.html";
-  });
-});
-
-$(function() {
   $("#filtrarTodos").click(function() {
     for(var i = 0; i < marcadores.length; i++)
     {
