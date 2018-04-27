@@ -1,14 +1,12 @@
-window.fbAsyncInit = function()
+window.fbAsyncInit = function() 
 {
     FB.init({
-        appId   : '1071078366372805',
-        oauth   : true,
-        status  : true, // check login status
-        cookie  : true, // enable cookies to allow the server to access the session
-        xfbml   : true // parse XFBML
+      appId            : '1071078366372805',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.12'
     });
-
-};
+}; 
 
 function fb_login()
 {
