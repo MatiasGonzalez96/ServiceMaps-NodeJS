@@ -32,7 +32,7 @@ function fb_login()
         }
     }, 
     {
-        scope: 'publish_profile,email'
+        scope: 'public_profile,email'
     });
 }
 
