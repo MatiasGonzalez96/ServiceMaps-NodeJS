@@ -86,3 +86,8 @@ $(function() {
   });
 });
 
+$(function() {
+  $("#linkLogin").click(function() {
+    checkLoginState();
+  });
+});
