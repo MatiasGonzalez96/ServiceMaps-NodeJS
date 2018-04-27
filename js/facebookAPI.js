@@ -14,14 +14,15 @@ function fb_login()
     {
         if (response.authResponse) 
         {
-            console.log('Welcome!  Fetching your information.... ');
-            //console.log(response); // dump complete info
             access_token = response.authResponse.accessToken; //get access token
             user_id = response.authResponse.userID; //get FB UID
 
             FB.api('/me', function(response) 
             {
                 user_email = response.email; //get user email
+
+                $("#infoUsuario").show();
+                document.getElementById("infoUsuario").innerHTML = response.name + response.lastname;
                 // you can store this data into your database             
             });
         } 
