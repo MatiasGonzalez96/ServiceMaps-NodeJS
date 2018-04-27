@@ -22,7 +22,7 @@ function fb_login()
                 user_email = response.email; //get user email
 
                 $("#infoUsuario").show();
-                document.getElementById("infoUsuario").innerHTML = response.name + response.lastname;
+                document.getElementById("infoUsuario").innerHTML = "Bienvenido/a " + response.name;
                 // you can store this data into your database             
             });
         } 
