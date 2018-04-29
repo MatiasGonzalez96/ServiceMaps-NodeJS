@@ -62,7 +62,7 @@ function cargarMarcador(servicios)
 	var marker = new google.maps.Marker({
 		position: new google.maps.LatLng(servicios.latitud, servicios.longitud),
 		map: map,
-		url: "servicios.html?id=" + servicios.id,
+		url: "/servicios?id=" + servicios.id,
 		animation: google.maps.Animation.DROP
 	});
 
@@ -75,8 +75,8 @@ function cargarMarcador(servicios)
 	});
 
 	marker.addListener('click', function()
-	{    	
-    	window.location.href = this.url;		
+	{ 
+    	window.location.href = this.url;
   });
 
   marcadores.push(marker);
@@ -88,14 +88,14 @@ $(function() {
       {
         if (id == 1) 
         {
-          $("#temaActual").attr("href", "css/turbo.css");
+          $("#temaActual").attr("href", "/stylesheets/turbo.css");
         }
       }
 });
 
 $(function() {
   $("#linkInicio").click(function() {
-    window.location.href = "index.html";
+    window.location.href = "/";
   });
 });
 
@@ -199,11 +199,11 @@ function buscarInput(value)
 {
   var id = obtenerIdServicio(value);
   if (id !== undefined) {
-    window.location.href = "servicios.html?id=" + id;
+    window.location.href = "/servicios?id=" + id;
   } 
   else 
   {
-    window.location.href = "servicios.html?id=" + value.toLowerCase().replace(/\s+/g, '_');
+    window.location.href = "/servicios?id=" + value.toLowerCase().replace(/\s+/g, '_');
   }
 }
 

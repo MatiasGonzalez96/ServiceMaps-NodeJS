@@ -15,7 +15,7 @@ $(function()
     if (id === false) 
     { 
       // Si se quiso acceder sin ningun id
-      window.location.replace("index.html");
+      window.location.replace("/");
     } 
     else 
     {
@@ -78,7 +78,7 @@ $(function()
       {
         if (id == 1) 
         {
-          $("#temaActual").attr("href", "css/turbo.css");
+          $("#temaActual").attr("href", "/stylesheets/turbo.css");
         }
       }
 });
@@ -94,7 +94,7 @@ function mostrarInformacionServicio()
   document.getElementById("webServicio").innerHTML += " <a class='info-link' href='http://" + servicio.sitioweb + "/' target='_blank' rel='noopener'>" + servicio.sitioweb + "</a>";
 
   //Cargo la imagen del servicio
-  $("#imagenServicio").attr("src", "media/imgs/" + servicio.imagen);
+  $("#imagenServicio").attr("src", "images/imgs/" + servicio.imagen);
 }
 
 function mostrarMensajeError(id)
@@ -117,12 +117,12 @@ function ocultarPaneles()
 
 $(function() {
   $("#botonComentar").click(function() {
-    window.location.href = "comentar.html?id=" + servicio.id;
+    window.location.href = "/comentarios?id=" + servicio.id;
   });
 });
 
 $(function() {
   $("#linkInicio").click(function() {
-    window.location.href = "index.html";
+    window.location.href = "/";
   });
 });

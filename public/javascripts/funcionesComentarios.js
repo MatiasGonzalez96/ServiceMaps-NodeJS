@@ -15,7 +15,7 @@ window.onload = function()
 		if (id === false) 
 	    { 
 	    	// Si se quiso acceder sin ningun id
-	    	window.location.replace("index.html");
+	    	window.location.replace("/");
 	 	} 
 	  	else
 	  	{
@@ -58,7 +58,7 @@ $(function()
       {
         if (id == 1) 
         {
-          $("#temaActual").attr("href", "css/turbo.css");
+          $("#temaActual").attr("href", "/stylesheets/turbo.css");
         }
       }
 });
@@ -80,13 +80,13 @@ function recuperarComentarios()
 
 $(function() {
   $("#linkInicio").click(function() {
-    window.location.href = "index.html";
+    window.location.href = "/";
   });
 });
 
 $(function() {
   $("#botonVolverComentario").click(function() {
-    window.location.href = "servicios.html?id=" + servicio.id;
+    window.location.href = "/servicios?id=" + servicio.id;
   });
 });
 
