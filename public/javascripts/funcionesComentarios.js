@@ -1,35 +1,29 @@
 var servicio;
 
-window.onload = function() 
+$(function() 
 {
-  var requestURL = "https://uns-iaw-2018-com08.github.io/ServiceMaps/data/servicios.json";
-  var request = new XMLHttpRequest();
-  request.open('GET', requestURL);
-  request.responseType = 'json';
-  request.send();
-  request.onload = function()
-  {
-	    var data = request.response;
+  	$.get("./api/servicios", function (servs) 
+  	{
+	    var data = servs;
 	    var id = obtenerParametroURL("id");
-
-		if (id === false) 
+	    if (id === false) 
 	    { 
-	    	// Si se quiso acceder sin ningun id
-	    	window.location.replace("/");
-	 	} 
-	  	else
-	  	{
-	    	// Buscar elemento usando jQuery
-	    	var obj = $.grep(data, function(obj){return obj.id === id;})[0]; 
-	    	if (obj !== undefined) 
-	    	{ 
-	    	  servicio = obj;
-	    	  cargarNombreServicio();
-	    	  recuperarComentarios();
-	    	} 
+	      	// Si se quiso acceder sin ningun id
+	      	window.location.replace("/");
+	    } 
+	    else 
+	    {
+	        // Buscar elemento usando jQuery
+			var obj = $.grep(data, function(obj){return obj.id === id;})[0]; 
+			if (obj !== undefined) 
+			{ 
+			  servicio = obj;
+			  cargarNombreServicio();
+			  recuperarComentarios();
+			}
 	    }
-   }
-}
+  	});
+});
 
 function obtenerParametroURL(variable) 
 {
@@ -50,18 +44,6 @@ function cargarNombreServicio()
 {
 	document.getElementById("nombreServicio").innerHTML += servicio.nombre +"!";
 }
-
-$(function() 
-{
-  var id = localStorage.getItem("tema");
-      if (id != undefined) 
-      {
-        if (id == 1) 
-        {
-          $("#temaActual").attr("href", "/stylesheets/turbo.css");
-        }
-      }
-});
 
 function guardarComentarios()
 {

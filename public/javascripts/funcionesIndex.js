@@ -2,23 +2,21 @@ var servicios;
 var marcadores = [];
 var map;
 
-$(function() 
-{
-  var requestURL = "https://uns-iaw-2018-com08.github.io/ServiceMaps/data/servicios.json";
-  var request = new XMLHttpRequest();
-  request.open('GET', requestURL);
-  request.responseType = 'json';
-  request.send();
-  request.onload = function()
+$(function() {
+  $.get("./api/servicios", function (servs) 
   {
-    servicios = request.response;
-    nombresServicios = obtenerNombresServicios();
-     $("#inputBusqueda").autocomplete({
-      source: nombresServicios
-    });
-    var nombresServicios = obtenerNombresServicios(servicios);
-    $("body").append("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>");
-  }
+      servicios = servs;
+      var nombresServicios = obtenerNombresServicios();
+      $("#inputBusqueda").autocomplete({
+        source: nombresServicios,
+        select: function(event, ui) 
+        {
+          $("#inputBusqueda").val(ui.item.value);
+          buscarInput(ui.item.value);
+        }
+      });
+      $("body").append("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>");
+  });
 });
 
 function initMap()
@@ -42,7 +40,7 @@ function initMap()
 		        ]
 	        }
     	]
-	});
+	}); 
 
 	// Agrego los marcadores para cada servicio
 	for (i = 0; i < servicios.length; i++) 
@@ -81,17 +79,6 @@ function cargarMarcador(servicios)
 
   marcadores.push(marker);
 }
-
-$(function() {
-  var id = localStorage.getItem("tema");
-      if (id != undefined) 
-      {
-        if (id == 1) 
-        {
-          $("#temaActual").attr("href", "/stylesheets/turbo.css");
-        }
-      }
-});
 
 $(function() {
   $("#linkInicio").click(function() {
@@ -217,6 +204,14 @@ function obtenerIdServicio(name)
   }
   return id;
 }
+
+// Overrides the default autocomplete filter function to search only from the beginning of the string
+$.ui.autocomplete.filter = function (array, term) {
+    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(term), "i");
+    return $.grep(array, function (value) {
+        return matcher.test(value.label || value.value || value);
+    });
+};
 
 $(function()
 {

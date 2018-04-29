@@ -1,4 +1,19 @@
 $(function() {
+  var id = localStorage.getItem("tema");
+      if (id != undefined) 
+      {
+        if (id == 1) 
+        {
+          $("#temaActual").attr("href", "/stylesheets/turbo.css");
+        }
+      }
+      else
+      {
+        localStorage.setItem("tema", 0);
+      }
+});
+
+$(function() {
   $("#linkEstilo").click(function() 
   {
     var id = localStorage.getItem("tema");

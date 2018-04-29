@@ -3,6 +3,4 @@ const servicios = function (req, res) {
   res.render('servicios', { title: 'Servicios' });
 };
 
-module.exports = {
-  servicios
-}
+module.exports = { servicios }

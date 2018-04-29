@@ -1,16 +1,9 @@
 var servicio;
 
-$(function() 
-{
-  var requestURL = "https://uns-iaw-2018-com08.github.io/ServiceMaps/data/servicios.json";
-  var request = new XMLHttpRequest();
-  request.open('GET', requestURL);
-  request.responseType = 'json';
-  request.send();
-  request.onload = function()
+$(function() {
+  $.get("./api/servicios", function (servs) 
   {
-    var data = request.response;
-
+    var data = servs;
     var id = obtenerParametroURL("id");
     if (id === false) 
     { 
@@ -31,9 +24,9 @@ $(function()
         mostrarInformacionServicio();
         //Cargo la api del mapa
         $("body").append("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>");
-      }       
+      }
     }
-  }
+  });
 });
 
 function initMap() {
@@ -70,18 +63,6 @@ function obtenerParametroURL(variable)
   }
   return(false);
 }
-
-$(function() 
-{
-  var id = localStorage.getItem("tema");
-      if (id != undefined) 
-      {
-        if (id == 1) 
-        {
-          $("#temaActual").attr("href", "/stylesheets/turbo.css");
-        }
-      }
-});
 
 function mostrarInformacionServicio()
 {
