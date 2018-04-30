@@ -15,25 +15,23 @@
     <!-- Panel Formulario -->
     <div id= "panelFormulario">        
 
-      <!-- Panel con las cajas Nombre y Apellido -->
-      <div id="panelNombreApellido">
-        <!-- Caja nombre -->
-          <input id="cajaNombre" type="text" class="form-control" placeholder="Nombre*"> 
+      <div>
+        <div id="panelUsuarioActual">
+          <h4 id="nombreUsuario">Usuario actual: </h4>
+        </div>
 
-        <!-- Caja apellido -->
-          <input id="cajaApellido" type="text" class="form-control" placeholder="Apellido*">
-      </div>      
+        <!-- Caja para comentarios -->
+        <textarea placeholder="Inserte comentario*" id="cajaComentarios"></textarea>
 
-      <!-- Caja para comentarios -->
-      <textarea placeholder="Inserte comentario*" id="cajaComentarios"></textarea>
+        <!-- Panel para la botonera -->
+        <div id="panelBotoneraComentarios">
+          <button type="button" class="botonComentarios" id="botonPostear">Postear</button>
+          <button type="button" class="botonComentarios" id="botonVerComentarios">Mostrar</button>
+          <button type="button" class="botonComentarios" id="botonOcultarComentarios">Ocultar</button>
+          <button type="button" class="botonComentarios" id="botonVolverComentario">Volver</button>
+        </div>
 
-      <!-- Panel para la botonera -->
-      <div id="panelBotoneraComentarios">
-        <button type="button" class="botonComentarios" id="botonPostear">Postear</button>
-        <button type="button" class="botonComentarios" id="botonVerComentarios">Mostrar</button>
-        <button type="button" class="botonComentarios" id="botonOcultarComentarios">Ocultar</button>
-        <button type="button" class="botonComentarios" id="botonVolverComentario">Volver</button>
-      </div>     
+      </div>
 
     </div>
 

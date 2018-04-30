@@ -299,51 +299,6 @@ body
   padding: 10px;
 }
 
-#panelNombreApellido
-{
-  width: 100%;
-  height: 50px;
-  margin: 20px auto;
-} 
-
-#cajaNombre
-{
-  width: 48%;
-  height: 50px;
-  float: left;
-  border-radius: 0px;
-  padding: 10px;
-  border: none;
-  outline: none;
-  background-color: white;
-  font-size: 22px;
-}
-
-#cajaNombre:focus 
-{
-  outline: 5px solid grey;
-  outline-offset: -5px;
-}
-
-#cajaApellido
-{
-  width: 48%;
-  height: 50px;
-  float: right;
-  border-radius: 0px;
-  padding: 10px;
-  border: none;
-  outline: none;
-  background-color: white;
-  font-size: 22px;
-}
-
-#cajaApellido:focus 
-{
-  outline: 5px solid grey;
-  outline-offset: -5px;
-}
-
 #cajaComentarios
 {
   width: 100%;
@@ -399,6 +354,32 @@ body
   background-color: #D8D8D8;
   padding: 20px;
   overflow-x: auto;
+}
+
+#panelUsuarioActual
+{
+  width: auto;
+  height: auto;
+  text-align: center;
+  margin: 10px auto;
+}
+
+#nombreUsuario
+{
+  font-size: 20pt;
+}
+
+#linkInicioError 
+{
+  font-size: 18pt;
+  color: gray;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+#linkInicioError:hover 
+{
+  color: black;
 }
 
 /* ----------------------- Estilos Topnav ----------------------- */

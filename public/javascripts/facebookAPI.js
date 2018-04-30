@@ -23,6 +23,8 @@ function fb_login()
 
                 $("#infoUsuario").show();
                 document.getElementById("infoUsuario").innerHTML = "Bienvenido/a " + response.name;
+                localStorage.setItem("fb", response.name);
+                getLogoutPanel();
                 // you can store this data into your database             
             });
         } 
@@ -51,3 +53,46 @@ $(function() {
         fb_login();
     });
 });
+
+$(function()
+ {
+  var usuario = localStorage.getItem("fb");
+  if (usuario != undefined) 
+  {
+    document.getElementById("infoUsuario").innerHTML = "Bienvenido/a " + usuario;
+    $("#infoUsuario").show();
+    getLogoutPanel();        
+  }
+});
+
+function getLogoutPanel()
+{
+  $("#linkLogin").remove();
+  var log = document.createElement("a");
+  log.setAttribute("id", "linkLogout");
+  log.setAttribute("href", "#");
+  log.innerHTML = "Cerrar Sesión";
+  document.getElementById("panelLogin").appendChild(log);
+
+  if (log.addEventListener)
+  {
+      log.addEventListener('click', logout, false);
+  }
+  else 
+  {
+      log.attachEvent('onclick', logout);
+  }
+
+}
+
+function logout()
+{
+  FB.getLoginStatus(function(response) {
+    if (response && response.status === 'connected') {
+        FB.logout(function(response) {
+            document.location.reload();
+        });
+    }
+  });
+  localStorage.removeItem("fb");
+}

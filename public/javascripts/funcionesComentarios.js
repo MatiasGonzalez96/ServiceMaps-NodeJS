@@ -1,4 +1,5 @@
 var servicio;
+var usuario;
 
 $(function() 
 {
@@ -18,8 +19,17 @@ $(function()
 			if (obj !== undefined) 
 			{ 
 			  servicio = obj;
-			  cargarNombreServicio();
-			  recuperarComentarios();
+			  usuario = localStorage.getItem("fb");
+	    	  if (usuario != undefined)
+	    	  {
+	    	  	cargarNombreServicio();
+	    	 	cargarNombreUsuario();
+	    	  	recuperarComentarios();
+	    	  }
+	    	  else
+	    	  {
+	    	  	mostrarMensajeLogeo();
+	    	  }
 			}
 	    }
   	});
@@ -43,6 +53,34 @@ function obtenerParametroURL(variable)
 function cargarNombreServicio()
 {
 	document.getElementById("nombreServicio").innerHTML += servicio.nombre +"!";
+}
+
+function cargarNombreUsuario()
+{
+	document.getElementById("nombreUsuario").innerHTML += usuario;
+}
+
+function mostrarMensajeLogeo()
+{
+	ocultarPaneles();
+
+	var midiv = document.getElementById("panelFormulario");
+	midiv.setAttribute("id","panelError");
+
+	$("#panelError").html("<span id='etiquetaError'><b>¡Debe iniciar sesión para dejar su comentario!</b></span>");
+	  
+	var stringAviso = "Para ello, vuelva a la página de inicio";
+	$("#panelError").append("<span id='etiquetaAviso'>"+ stringAviso + "</span>");
+
+	$("#panelError").append("<span id='etiquetaAviso'><a id='linkInicioError' href='/'>Volver al inicio</a></span>");
+}
+
+function ocultarPaneles()
+{
+	$("#nombreServicio").hide();
+	$("#panelUsuarioActual").hide();
+	$("#cajaComentarios").hide();
+	$("#panelBotoneraComentarios").hide();
 }
 
 function guardarComentarios()
@@ -92,54 +130,33 @@ $(function() {
   });
 });
 
-$(function() {
-  $("#botonPostear").click(function() {
-	  	var nombre = document.getElementById("cajaNombre").value;
-		if (nombre != null && nombre != "")
-		{
-			var apellido = document.getElementById("cajaApellido").value;
-			if (apellido != null && apellido != "")
-			{
-				var comentario = document.getElementById("cajaComentarios").value;
-				if (comentario != null && comentario != "")
-				{
-					var comentario = document.getElementById("cajaComentarios").value;
+$(function() 
+{
+  $("#botonPostear").click(function() 
+  {	
+	var comentario = document.getElementById("cajaComentarios").value;
+	if (comentario != null && comentario != "")
+	{
+		var comentario = document.getElementById("cajaComentarios").value;
 
-					//Creo el panel con el comentario
-					var midiv = document.createElement("div");
-					midiv.setAttribute("id", "panelFormatoComentario");
-					midiv.innerHTML = "<h5> <b>"+ nombre +" "+ apellido +"</b> </hs> <hr> <h6>"+ comentario + "</h6>";
-					document.getElementById("listaComentarios").appendChild(midiv);
+		//Creo el panel con el comentario
+		var midiv = document.createElement("div");
+		midiv.setAttribute("id", "panelFormatoComentario");
+		midiv.innerHTML = "<h5> <b>"+ usuario +"</b> </hs> <hr> <h6>"+ comentario + "</h6>";
+		document.getElementById("listaComentarios").appendChild(midiv);
 
-					guardarComentarios();
+		guardarComentarios();
 
-					$("#cajaNombre").attr("placeholder", "Nombre*");
-					document.getElementById("cajaNombre").value = "";
+		$("#cajaComentarios").attr("placeholder", "Inserte comentario*");
+		document.getElementById("cajaComentarios").value = "";
 
-					$("#cajaApellido").attr("placeholder", "Apellido*");
-					document.getElementById("cajaApellido").value = "";
+		alert("Comentario cargado con éxito");
 
-					$("#cajaComentarios").attr("placeholder", "Inserte comentario*");
-					document.getElementById("cajaComentarios").value = "";
-
-					alert("Comentario cargado con éxito");
-
-					$("#panelComentarios").show();
-
-				}
-				else
-				{
-						alert("No se cargó ningún comentario");
-				}
-			}
-			else
-			{
-					alert("No se cargó ningún apellido");
-			}
-		}
-		else
-		{
-				alert("No se cargó ningun nombre");
-		}
+		$("#panelComentarios").show();
+	}
+	else
+	{
+		alert("No se cargó ningún comentario");
+	}			
   });
 });
