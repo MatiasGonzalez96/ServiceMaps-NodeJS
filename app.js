@@ -8,7 +8,7 @@ require('./app_server/models/db')
 
 const indexRouter = require('./app_server/routes/index');
 const userRouter = require('./app_server/routes/users');
-const apiRouter = require('./app_server/routes/api');
+const apiRouter = require('./app_server/routes/API');
 
 var app = express();
 
@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', userRouter);
-app.use('/api', apiRouter);
+app.use('/API', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
