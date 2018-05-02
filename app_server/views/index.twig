@@ -1,5 +1,15 @@
 {% extends 'layout.twig' %}
 
+{% block stylesheet %}
+  <link rel='stylesheet' href='/stylesheets/estilosIndex.css'>
+{% endblock %} 
+
+{% block javascript %}
+  <script src="/javascripts/funcionesIndex.js"></script>
+  <script src="/javascripts/funcionesBusqueda.js"></script>
+  <script src="/javascripts/funcionesAPI.js"></script>
+{% endblock %}
+
 {% block body %}
 
 	<!-- Creo barra de busquedas -->
@@ -53,14 +63,6 @@
       <div id="panelFooter">
           Página web creada por García Matias y González Matias. © 2018 Service Maps.          
       </div>
-    </footer> 
-
-    <!-- Cargo scripts externos -->    
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
-    <script src="javascripts/estilos.js"></script> 
-    <script src="javascripts/funcionesIndex.js"></script>      
-    <script src="javascripts/facebookAPI.js"></script>  
+    </footer>  
 
 {% endblock %}

@@ -1,63 +1,32 @@
-var servicio;
 var usuario;
 
 $(function() 
 {
-  	$.get("./api/servicios", function (servs) 
-  	{
-	    var data = servs;
-	    var id = obtenerParametroURL("id");
-	    if (id === false) 
-	    { 
-	      	// Si se quiso acceder sin ningun id
-	      	window.location.replace("/");
-	    } 
-	    else 
-	    {
-	        // Buscar elemento usando jQuery
-			var obj = $.grep(data, function(obj){return obj.id === id;})[0]; 
-			if (obj !== undefined) 
-			{ 
-			  servicio = obj;
-			  usuario = localStorage.getItem("fb");
-	    	  if (usuario != undefined)
-	    	  {
-	    	  	cargarNombreServicio();
-	    	 	cargarNombreUsuario();
-	    	  	recuperarComentarios();
-	    	  }
-	    	  else
-	    	  {
-	    	  	mostrarMensajeLogeo();
-	    	  }
-			}
-	    }
-  	});
-});
+	usuario = localStorage.getItem("fb");
+	if (usuario != undefined)
+	{
+		document.getElementById("nombreUsuario").innerHTML += usuario;
+	  	recuperarComentarios();
+	}
+    else
+	{
+	  	mostrarMensajeLogeo();
+	}
+});	
 
-function obtenerParametroURL(variable) 
+function guardarComentarios()
 {
-  var query = window.location.search.substring(1);
-  var vars = query.split("&");
-  for (var i = 0; i < vars.length; i++) 
-  {
-    var pair = vars[i].split("=");
-    if (pair[0] == variable) 
-    {
-      return pair[1];
-    }
-  }
-  return(false);
+	var comentarios = document.getElementById("listaComentarios").innerHTML;
+	localStorage.setItem(nombre, comentarios);
 }
 
-function cargarNombreServicio()
+function recuperarComentarios() 
 {
-	document.getElementById("nombreServicio").innerHTML += servicio.nombre +"!";
-}
-
-function cargarNombreUsuario()
-{
-	document.getElementById("nombreUsuario").innerHTML += usuario;
+	var t = localStorage.getItem(nombre);
+	if (t != null)
+	{
+		document.getElementById("listaComentarios").innerHTML = t;
+	}
 }
 
 function mostrarMensajeLogeo()
@@ -83,21 +52,6 @@ function ocultarPaneles()
 	$("#panelBotoneraComentarios").hide();
 }
 
-function guardarComentarios()
-{
-	var comentarios = document.getElementById("listaComentarios").innerHTML;
-	localStorage.setItem(servicio.nombre, comentarios);
-}
-
-function recuperarComentarios() 
-{
-	var t = localStorage.getItem(servicio.nombre);
-	if (t != null)
-	{
-		document.getElementById("listaComentarios").innerHTML = t;
-	}
-}
-
 $(function() {
   $("#linkInicio").click(function() {
     window.location.href = "/";
@@ -106,13 +60,13 @@ $(function() {
 
 $(function() {
   $("#botonVolverComentario").click(function() {
-    window.location.href = "/servicios?id=" + servicio.id;
+    window.location.href = "/servicios/" + id + "/";
   });
 });
 
 $(function() {
   $("#botonVerComentarios").click(function() {
-  	var t = localStorage.getItem(servicio.nombre);
+  	var t = localStorage.getItem(nombre);
 	if (t != null)
 	{
 		$("#panelComentarios").show();

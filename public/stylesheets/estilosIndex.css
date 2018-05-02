@@ -1,0 +1,157 @@
+body
+{ 
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: auto;
+  background-color: #1C1C1C;
+}
+
+#map 
+{
+  height: 100%;
+  width: 100%;
+}
+
+#panelMapa 
+{
+  height: 500px;
+  width: 860px;  
+  margin: 50px auto;
+  padding: 10px;
+  background-color: grey;
+}
+
+#panelBotoneraFiltro
+{
+  height: 50px;
+  width: 860px;  
+  margin: 50px auto;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.botonFiltrar
+{
+  width: 210px; 
+  height: 50px;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  font-size: 14pt;
+  background-color: #f1f1f1;
+}
+
+.botonFiltrar:hover 
+{
+  outline: none;
+  background-color: dimgray;
+}
+
+.botonFiltrar.activo 
+{
+  background-color: #666;
+  color: white;
+}
+
+#panelBanner
+{
+  height: 130px;
+  width: 860px;
+  margin: 50px auto;
+  margin-bottom: 100px;
+  border: none;
+  background-color: grey;
+  padding: 5px;
+}
+
+#imagenBanner 
+{
+  width: 100%;
+  height: 100%;
+}
+
+#panelBusqueda 
+{
+  height: 50px;
+  width: 860px;
+  margin: auto;
+}
+
+#inputBusqueda
+{
+  height: 50px;
+  width: 760px;
+  background-color: white;
+  font-size: 22px;
+  padding: 10px;
+  border: none;
+  outline: none; 
+}
+
+#inputBusqueda:focus 
+{
+  outline: 5px solid grey;
+  outline-offset: -5px;
+}
+
+#botonBusqueda 
+{
+  height: 50px;
+  width: 80px;
+  background-color: gray;
+  cursor: pointer;
+  border: none;
+  float: right;
+  font-size: 15pt;
+}
+
+#botonBusqueda:hover 
+{
+  outline: none;
+  background-color: dimgray;
+}
+
+#panelDescripcionFiltros
+{
+  height: auto;
+  width: 350px;
+  text-align: center;
+  margin: 50px auto;
+  margin-bottom: 10px;
+}
+
+#textoInformacion
+{
+  font-size: 20pt;
+  color: white;
+  display: inline-block;  
+}
+
+#infoUsuario
+{
+  display: none;
+}
+
+#panelFooter 
+{
+  height: auto;
+  width: auto;
+  color: white;
+  text-align: center;
+  margin: 50px auto;
+  margin-top: 100px;
+  font-size: 16px;
+}
+
+/* ----------------------- Estilos Autocompletado ----------------------- */
+
+.ui-autocomplete 
+{
+  font-size: 22px;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-state-active.ui-button:hover 
+{
+  border: 1px gray;
+  background-color: #6E6E6E;
+}

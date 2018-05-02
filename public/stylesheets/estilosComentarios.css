@@ -1,0 +1,154 @@
+body
+{ 
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: auto;
+  background-color: #1C1C1C;
+}
+
+#panelComentarios
+{
+  height: 300px;
+  width: 860px;
+  margin: 50px auto;
+  background-color: #BDBDBD;
+  padding: 10px;
+  display: none;
+}
+
+#listaComentarios
+{
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
+  resize: none;
+  background-color: #BDBDBD;
+}
+
+#panelFormulario
+{
+  width: 860px;
+  height: auto;
+  margin: 50px auto;
+  background-color: #BDBDBD;
+  padding: 10px;
+}
+
+#cajaComentarios
+{
+  width: 100%;
+  height: 100px;
+  padding: 10px;  
+  background-color: white;
+  font-size: 22px;
+}
+
+#cajaComentarios:focus 
+{
+  outline: 5px solid grey;
+  outline-offset: -5px;
+}
+
+#panelBotoneraComentarios
+{
+  height: 50px;
+  width: auto;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.botonComentarios
+{ 
+  height: 50px;
+  width: 125px;   
+  cursor: pointer;
+  border: none;
+  background-color: gray;
+  font-size: 17pt;
+}
+
+.botonComentarios:hover 
+{
+  outline: none;
+  background-color: dimgray;
+}
+
+#nombreServicio
+{
+  font-size: 20pt;
+  margin: 20px auto;
+  text-align: center;
+  color: white;
+}
+
+#panelFormatoComentario
+{
+  width: 95%;
+  height: auto;
+  margin: 10px auto;
+  background-color: #D8D8D8;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+#panelUsuarioActual
+{
+  width: auto;
+  height: auto;
+  text-align: center;
+  margin: 10px auto;
+}
+
+#nombreUsuario
+{
+  font-size: 20pt;
+}
+
+#panelError
+{
+  width: 860px;
+  height: auto;
+  margin: 50px auto;
+  background-color: white;
+  padding: 20px;
+}
+
+#etiquetaError 
+{
+  display: block;
+  font-size: 20pt;
+  text-align: center;
+  margin: 10px;
+}
+
+#etiquetaAviso 
+{
+  display: block;
+  font-size: 15pt;
+  text-align: center;
+  margin: 10px;
+}
+
+#linkInicioError 
+{
+  font-size: 18pt;
+  color: gray;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+#linkInicioError:hover 
+{
+  color: black;
+}
+
+#panelFooter 
+{
+  height: auto;
+  width: auto;
+  color: white;
+  text-align: center;
+  margin: 50px auto;
+  margin-top: 100px;
+  font-size: 16px;
+}

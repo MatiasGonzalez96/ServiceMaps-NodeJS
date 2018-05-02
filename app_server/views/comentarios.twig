@@ -1,4 +1,16 @@
-{% extends "layout.twig" %}
+{% extends 'layout.twig' %}
+
+{% block stylesheet %}
+  <link rel='stylesheet' href='/stylesheets/estilosComentarios.css'>
+{% endblock %} 
+
+{% block javascript %}
+  <script>
+    var id = '{{servicio.id}}';
+    var nombre = '{{servicio.nombre}}';
+  </script>
+  <script src="/javascripts/funcionesComentarios.js"></script>
+{% endblock %}
 
 {% block body %}
 
@@ -10,7 +22,7 @@
     </div> 
 
     <!-- Etiqueta para identificar el servicio -->
-    <h4 id="nombreServicio">¡Deje su comentario a </h4>
+    <h4 id="nombreServicio">¡Deje su comentario a {{ servicio.nombre }} </h4>
 
     <!-- Panel Formulario -->
     <div id= "panelFormulario">        
@@ -46,13 +58,6 @@
       <div id="panelFooter">
           Página web creada por García Matias y González Matias. © 2018 Service Maps.          
       </div>
-    </footer>  
-
-    <!-- Cargo scripts externos -->    
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
-    <script src="javascripts/estilos.js"></script>
-    <script src="javascripts/funcionesComentarios.js"></script>
+    </footer> 
 
 {% endblock %}

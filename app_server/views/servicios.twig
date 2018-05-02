@@ -1,5 +1,16 @@
 {% extends "layout.twig" %}
 
+{% block stylesheet %}
+  <link rel='stylesheet' href='/stylesheets/estilosServicios.css'>
+{% endblock %} 
+
+{% block javascript %}  
+  <script>
+    var id = '{{servicio.id}}';
+  </script>
+  <script src="/javascripts/funcionesServicios.js"></script>
+{% endblock %}
+
 {% block body %}
 
 	<!-- Creo barra de busquedas -->
@@ -11,7 +22,8 @@
 
     <!-- Creo panel del mapa -->
     <div id="panelMapaServicios">
-      <div id="map">    
+      <div id="map" latitud="{{servicio.latitud}}" longitud="{{servicio.longitud}}">
+        <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>   
       </div>
     </div>
 
@@ -20,7 +32,13 @@
 
       <!-- Creo descripcion para el panel de botonera -->
       <div id="panelNombreServicio">
-        <span id="nombreServicio"></span>
+
+        {% if servicio.nombre != '' %}
+          <span id="nombreServicio">
+            {{ servicio.nombre }} 
+          </span>
+        {% endif %}
+
       </div>
 
       <div id="panelInfoImagen">
@@ -29,11 +47,37 @@
         <div id="panelInformacion">
 
           <!-- Creo las etiquetas -->
-          <h4 class="etiqueta" id="tipoServicio"><span class="glyphicon glyphicon-cog"></span> Tipo:</h4>
-          <h4 class="etiqueta" id="direccionServicio"><span class="glyphicon glyphicon-map-marker"></span> Dirección:</h4>
-          <h4 class="etiqueta" id="telefonoServicio"><span class="glyphicon glyphicon-earphone"></span> Teléfono:</h4>
-          <h4 class="etiqueta" id="horarioServicio"><span class="glyphicon glyphicon-time"></span> Horario:</h4>
-          <h4 class="etiqueta" id="webServicio"><span class="glyphicon glyphicon-globe"></span> Sitio web:</h4>
+
+          {% if servicio.tipo != '' %}
+            <h4 class="etiqueta" id="tipoServicio"><span class="glyphicon glyphicon-cog"></span> 
+              Tipo: <b> {{ servicio.tipo }} </b>
+            </h4>
+          {% endif %}
+
+          {% if servicio.direccion != '' %}
+            <h4 class="etiqueta" id="direccionServicio"><span class="glyphicon glyphicon-map-marker"></span>
+              Dirección: <b> {{ servicio.direccion }} </b>
+             </h4>
+          {% endif %}
+
+          {% if servicio.direccion != '' %}
+            <h4 class="etiqueta" id="telefonoServicio"><span class="glyphicon glyphicon-earphone"></span> 
+              Teléfono: <b> {{ servicio.telefono }} </b>
+            </h4>
+          {% endif %}
+
+          {% if servicio.horario != '' %}
+            <h4 class="etiqueta" id="horarioServicio"><span class="glyphicon glyphicon-time"></span> 
+              Horario: <b> {{ servicio.horario }} </b>
+            </h4>
+          {% endif %} 
+
+          {% if servicio.sitioweb != '' %}
+            <h4 class="etiqueta" id="webServicio"><span class="glyphicon glyphicon-globe"></span> 
+              Sitio web: <a class='info-link' href='http://{{ servicio.sitioweb }}/' target='_blank' rel='noopener'> 
+              {{ servicio.sitioweb }} </a>
+            </h4>
+          {% endif %}
 
           <!-- Creo panel de la botonera -->
           <div id="panelBotoneraServicios">
@@ -44,7 +88,7 @@
 
         <!-- Creo panel de la imagen -->
         <div id="panelImagenServicio">
-          <img id="imagenServicio">
+          <img id="imagenServicio" src='/images/imgs/{{servicio.imagen}}'>
         </div>
 
       </div>
@@ -57,12 +101,5 @@
           Página web creada por García Matias y González Matias. © 2018 Service Maps.          
       </div>
     </footer>
-
-    <!-- Cargo scripts externos -->    
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
-    <script src="javascripts/estilos.js"></script>
-    <script src="javascripts/funcionesServicios.js"></script>
 
 {% endblock %}

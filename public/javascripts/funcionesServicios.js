@@ -1,36 +1,6 @@
-var servicio;
-
-$(function() {
-  $.get("./api/servicios", function (servs) 
-  {
-    var data = servs;
-    var id = obtenerParametroURL("id");
-    if (id === false) 
-    { 
-      // Si se quiso acceder sin ningun id
-      window.location.replace("/");
-    } 
-    else 
-    {
-      // Buscar elemento usando jQuery
-      var obj = $.grep(data, function(obj){return obj.id === id;})[0]; 
-      if(obj === undefined)
-      {
-        mostrarMensajeError(id);        
-      }
-      else 
-      { 
-        servicio = obj;
-        mostrarInformacionServicio();
-        //Cargo la api del mapa
-        $("body").append("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>");
-      }
-    }
-  });
-});
-
-function initMap() {
-  var ubicacionServicio = new google.maps.LatLng(servicio.latitud, servicio.longitud);
+function initMap() 
+{
+  var ubicacionServicio = new google.maps.LatLng(parseFloat(document.getElementById('map').getAttribute("latitud")), parseFloat(document.getElementById('map').getAttribute("longitud")));
   var map = new google.maps.Map(document.getElementById("map"), {
     zoom: 16,
     center: ubicacionServicio,
@@ -51,54 +21,9 @@ function initMap() {
   });
 }
 
-function obtenerParametroURL(variable) 
-{
-  var query = window.location.search.substring(1);
-  var vars = query.split("&");
-  for (var i = 0; i < vars.length; i++) {
-    var pair = vars[i].split("=");
-    if (pair[0] == variable) {
-      return pair[1];
-    }
-  }
-  return(false);
-}
-
-function mostrarInformacionServicio()
-{
-  //Cargo la informacion del servicio
-  document.getElementById("nombreServicio").innerHTML += "<b>"+ servicio.nombre + "</b>";
-  document.getElementById("tipoServicio").innerHTML += " <b>"+ servicio.tipo + "</b>";
-  document.getElementById("direccionServicio").innerHTML += " <b>"+ servicio.direccion + "</b>";
-  document.getElementById("telefonoServicio").innerHTML += " <b>"+ servicio.telefono + "</b>";
-  document.getElementById("horarioServicio").innerHTML += " <b>"+ servicio.horario + "</b>";
-  document.getElementById("webServicio").innerHTML += " <a class='info-link' href='http://" + servicio.sitioweb + "/' target='_blank' rel='noopener'>" + servicio.sitioweb + "</a>";
-
-  //Cargo la imagen del servicio
-  $("#imagenServicio").attr("src", "images/imgs/" + servicio.imagen);
-}
-
-function mostrarMensajeError(id)
-{
-  ocultarPaneles();
-
-  var midiv = document.getElementById("panelMapaServicios");
-  midiv.setAttribute("id","panelError");
-
-  $("#panelError").html("<span id='etiquetaError'><b> No se encontró la búsqueda </b> \"<b>" + id + "</b>\"</span>");
-  
-  var stringAviso = "Ingrese correctamente el nombre del servicio (respetando mayúsculas y minúsculas)";
-  $("#panelError").append("<span id='etiquetaAviso'>"+ stringAviso + "</span>");
-}
-
-function ocultarPaneles()
-{
-  $("#panelServicios").hide();
-}
-
 $(function() {
   $("#botonComentar").click(function() {
-    window.location.href = "/comentarios?id=" + servicio.id;
+    window.location.href = "../comentarios/" + id + "/";
   });
 });
 

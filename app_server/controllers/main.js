@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Servicio = mongoose.model('Servicio');
 
-/* GET home page. */
+/* GET index page. */
 const index = function (req, res) { 
   Servicio
     .find()
@@ -17,4 +17,34 @@ const index = function (req, res) {
     })
 };
 
-module.exports = { index }
+/* GET Servicios page. */
+const servicios = function(req, res) 
+{
+  Servicio.findOne({ 'id': req.params.id }).exec((err, servicio) => {
+      if (err) {
+        res.render('error',{error : err});
+      } else {
+        res.render('servicios', {
+          title: 'Servicios',
+          servicio: servicio
+        });
+      }
+    })
+};
+
+/* GET Comentarios page. */
+const comentarios = function(req, res) 
+{
+  Servicio.findOne({ 'id': req.params.id }).exec((err, servicio) => {
+      if (err) {
+        res.render('error',{error : err});
+      } else {
+        res.render('comentarios', {
+          title: 'Comentarios',
+          servicio: servicio
+        });
+      }
+    })
+};
+
+module.exports = { index, servicios, comentarios }

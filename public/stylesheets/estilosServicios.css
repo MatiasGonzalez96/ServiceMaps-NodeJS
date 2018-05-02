@@ -1,0 +1,119 @@
+body
+{ 
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: auto;
+  background-color: #1C1C1C;
+}
+
+#map 
+{
+  height: 100%;
+  width: 100%;
+}
+
+#panelMapaServicios 
+{
+  height: 300px;
+  width: 860px;  
+  margin: 50px auto;
+  padding: 10px;
+  background-color: grey;
+}
+
+#panelServicios 
+{
+  height: auto;
+  width: 860px;
+  background-color: #BDBDBD;
+  margin: 50px auto;
+  padding: 10px;
+}
+
+#panelInfoImagen
+{
+  width: 800px;
+  height: 250px;
+  margin: 20px auto;
+  margin-bottom: 10px;
+}
+
+#panelInformacion
+{
+  height: 250px;
+  width: 50%;
+  float: left;
+}
+
+#panelImagenServicio
+{
+  height: 250px;
+  width: 50%;
+  background-color: grey;
+  padding: 10px;
+  float: right;
+}
+
+#imagenServicio
+{
+  height: 100%;
+  width: 100%;
+}
+
+#panelNombreServicio
+{
+  width: auto;
+  height: auto;
+  margin: 50px auto;
+  margin-top: 10px;
+  text-align: center;
+}
+
+#nombreServicio
+{
+  font-size: 20pt;
+  color: #6E6E6E;
+}
+
+.etiqueta
+{
+  padding: 0 0 0 5px;
+  font-size: 15pt;
+}
+
+#panelBotoneraServicios
+{
+  height: 50px;
+  width: 150px;
+  margin: 30px auto;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+#botonComentar
+{ 
+  height: 50px;
+  width: 150px;
+  margin-right: 10px;   
+  cursor: pointer;
+  border: none;
+  background-color: grey;
+  font-size: 17pt;
+}
+
+#botonComentar:hover 
+{
+  outline: none;
+  background-color: dimgray;
+}
+
+#panelFooter 
+{
+  height: auto;
+  width: auto;
+  color: white;
+  text-align: center;
+  margin: 50px auto;
+  margin-top: 100px;
+  font-size: 16px;
+}
