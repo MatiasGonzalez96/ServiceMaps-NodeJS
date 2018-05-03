@@ -3,7 +3,7 @@ var marcadores = [];
 var map;
 
 $(function() {
-  $.get("./api/servicios", function (servs) 
+  $.get("./API/servicios", function (servs) 
   {
       servicios = servs;
       cargarBusqueda();
