@@ -1,13 +1,14 @@
 var servicios;
 var marcadores = [];
 var map;
+var posActual = {};
 
 $(function() {
-  $.get("./API/servicios", function (servs) 
+  $.get("./API/servicios", function (servs)
   {
       servicios = servs;
       cargarBusqueda();
-      $("body").append("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>");
+      $("body").append("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&libraries=geometry&callback=initMap' async defer></script>");
   });
 });
 
@@ -19,26 +20,40 @@ function initMap()
 	map = new google.maps.Map(document.getElementById('map'), {
 	  	zoom: 13,
 	  	center: bahia,
-    	styles: 
+    	styles:
     	[
 	      	{
 		        featureType: "poi",
 		        elementType: "labels",
-		        stylers: 
+		        stylers:
 		        [
-		          { 
-		          	visibility: "off" 
+		          {
+		          	visibility: "off"
 		          }
 		        ]
 	        }
     	]
-	}); 
+	});
+
+    if (navigator.geolocation)
+    {
+          navigator.geolocation.getCurrentPosition(function(position)
+          {
+                posActual =
+                {
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude
+                };
+                alert(posActual.lat);
+                alert(posActual.lng);
+         });
+    }
 
 	// Agrego los marcadores para cada servicio
-	for (i = 0; i < servicios.length; i++) 
+	for (i = 0; i < servicios.length; i++)
 	{
 	    cargarMarcador(servicios[i]);
-	}	
+	}
 }
 
 function cargarMarcador(servicios)
@@ -65,7 +80,7 @@ function cargarMarcador(servicios)
 	});
 
 	marker.addListener('click', function()
-	{ 
+	{
     	window.location.href = this.url;
   });
 
@@ -86,7 +101,7 @@ $(function() {
     }
     for(var i = 0; i < servicios.length; i++)
     {
-      cargarMarcador(servicios[i]);        
+      cargarMarcador(servicios[i]);
     }
   });
 });
@@ -103,7 +118,7 @@ $(function() {
       {
         cargarMarcador(servicios[i]);
       }
-    }    
+    }
   });
 });
 
@@ -119,7 +134,7 @@ $(function() {
       {
         cargarMarcador(servicios[i]);
       }
-    }    
+    }
   });
 });
 
@@ -135,7 +150,7 @@ $(function() {
       {
         cargarMarcador(servicios[i]);
       }
-    }    
+    }
   });
 });
 
@@ -151,3 +166,28 @@ $(function()
     });
   }
 });
+
+$(function() {
+  $("#redonda500").click(function()
+  {
+    for(var i = 0; i < marcadores.length; i++)
+    {
+      marcadores[i].setMap(null);
+    }
+    for(var i = 0; i < servicios.length; i++)
+    {
+        var destino = new google.maps.LatLng(servicios[i].latitud, servicios[i].longitud);
+        if(getDistance(destino) <= 1000)
+        {
+            cargarMarcador(servicios[i]);
+        }
+    }
+  });
+});
+
+function getDistance(destino)
+ {
+     origen = new google.maps.LatLng(posActual.lat, posActual.lng);
+     var distance = google.maps.geometry.spherical.computeDistanceBetween(origen, destino);
+     return distance;
+ }

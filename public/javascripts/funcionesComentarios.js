@@ -1,18 +1,20 @@
 var usuario;
 
-$(function() 
+$(function()
 {
 	usuario = localStorage.getItem("fb");
 	if (usuario != undefined)
 	{
-		document.getElementById("nombreUsuario").innerHTML += usuario;
+			document.getElementById("nombreUsuario").innerHTML += usuario;
 	  	recuperarComentarios();
 	}
     else
 	{
-	  	mostrarMensajeLogeo();
+	  	//mostrarMensajeLogeo();
+			document.getElementById("nombreUsuario").innerHTML += usuario;
+			recuperarComentarios();
 	}
-});	
+});
 
 function guardarComentarios()
 {
@@ -20,7 +22,7 @@ function guardarComentarios()
 	localStorage.setItem(nombre, comentarios);
 }
 
-function recuperarComentarios() 
+function recuperarComentarios()
 {
 	var t = localStorage.getItem(nombre);
 	if (t != null)
@@ -37,7 +39,7 @@ function mostrarMensajeLogeo()
 	midiv.setAttribute("id","panelError");
 
 	$("#panelError").html("<span id='etiquetaError'><b>¡Debe iniciar sesión para dejar su comentario!</b></span>");
-	  
+
 	var stringAviso = "Para ello, vuelva a la página de inicio";
 	$("#panelError").append("<span id='etiquetaAviso'>"+ stringAviso + "</span>");
 
@@ -64,30 +66,10 @@ $(function() {
   });
 });
 
-$(function() {
-  $("#botonVerComentarios").click(function() {
-  	var t = localStorage.getItem(nombre);
-	if (t != null)
-	{
-		$("#panelComentarios").show();
-	} 
-	else
-	{
-		alert("No hay comentarios para mostrar");
-	}   
-  });
-});
-
-$(function() {
-  $("#botonOcultarComentarios").click(function() {
-    $("#panelComentarios").hide();
-  });
-});
-
-$(function() 
+$(function()
 {
-  $("#botonPostear").click(function() 
-  {	
+  $("#botonPostear").click(function()
+  {
 	var comentario = document.getElementById("cajaComentarios").value;
 	if (comentario != null && comentario != "")
 	{
@@ -111,6 +93,6 @@ $(function()
 	else
 	{
 		alert("No se cargó ningún comentario");
-	}			
+	}
   });
 });

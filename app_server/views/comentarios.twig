@@ -2,7 +2,7 @@
 
 {% block stylesheet %}
   <link rel='stylesheet' href='/stylesheets/estilosComentarios.css'>
-{% endblock %} 
+{% endblock %}
 
 {% block javascript %}
   <script>
@@ -18,14 +18,14 @@
     <div class="topnav">
       <!-- Left-aligned links (default) -->
       <a id="linkInicio" href="#" class="active">Inicio</a>
-      <a id="linkEstilo" href="#" >Cambiar Estilo</a> 
-    </div> 
+      <a id="linkEstilo" href="#" >Cambiar Estilo</a>
+    </div>
 
     <!-- Etiqueta para identificar el servicio -->
-    <h4 id="nombreServicio">¡Deje su comentario a {{ servicio.nombre }} </h4>
+    <h4 id="nombreServicio">¡Deje su comentario a {{ servicio.nombre }}! </h4>
 
     <!-- Panel Formulario -->
-    <div id= "panelFormulario">        
+    <div id= "panelFormulario">
 
       <div>
         <div id="panelUsuarioActual">
@@ -38,8 +38,6 @@
         <!-- Panel para la botonera -->
         <div id="panelBotoneraComentarios">
           <button type="button" class="botonComentarios" id="botonPostear">Postear</button>
-          <button type="button" class="botonComentarios" id="botonVerComentarios">Mostrar</button>
-          <button type="button" class="botonComentarios" id="botonOcultarComentarios">Ocultar</button>
           <button type="button" class="botonComentarios" id="botonVolverComentario">Volver</button>
         </div>
 
@@ -50,14 +48,19 @@
     <!-- Panel que muestra los comentarios -->
     <div id= "panelComentarios">
       <div id="listaComentarios">
+
+      {% for comentario in servicio.comentarios %}
+        {% include 'creacionComentarios.twig' %}
+      {% endfor %}
+
       </div>
     </div>
 
     <!-- Creo Footer -->
     <footer>
       <div id="panelFooter">
-          Página web creada por García Matias y González Matias. © 2018 Service Maps.          
+          Página web creada por García Matias y González Matias. © 2018 Service Maps.
       </div>
-    </footer> 
+    </footer>
 
 {% endblock %}

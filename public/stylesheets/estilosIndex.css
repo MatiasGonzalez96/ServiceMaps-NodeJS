@@ -1,21 +1,21 @@
 body
-{ 
+{
   margin: 0 !important;
   padding: 0 !important;
   overflow: auto;
   background-color: #1C1C1C;
 }
 
-#map 
+#map
 {
   height: 100%;
   width: 100%;
 }
 
-#panelMapa 
+#panelMapa
 {
   height: 500px;
-  width: 860px;  
+  width: 860px;
   margin: 50px auto;
   padding: 10px;
   background-color: grey;
@@ -23,8 +23,8 @@ body
 
 #panelBotoneraFiltro
 {
-  height: 50px;
-  width: 860px;  
+  height: 35px;
+  width: 860px;
   margin: 50px auto;
   margin-top: 20px;
   text-align: center;
@@ -32,8 +32,8 @@ body
 
 .botonFiltrar
 {
-  width: 210px; 
-  height: 50px;
+  width: 210px;
+  height: 35px;
   cursor: pointer;
   border: none;
   text-align: center;
@@ -41,13 +41,13 @@ body
   background-color: #f1f1f1;
 }
 
-.botonFiltrar:hover 
+.botonFiltrar:hover
 {
   outline: none;
   background-color: dimgray;
 }
 
-.botonFiltrar.activo 
+.botonFiltrar.activo
 {
   background-color: #666;
   color: white;
@@ -64,48 +64,48 @@ body
   padding: 5px;
 }
 
-#imagenBanner 
+#imagenBanner
 {
   width: 100%;
   height: 100%;
 }
 
-#panelBusqueda 
+#panelBusqueda
 {
-  height: 50px;
+  height: 35px;
   width: 860px;
   margin: auto;
 }
 
 #inputBusqueda
 {
-  height: 50px;
-  width: 760px;
+  height: 35px;
+  width: 700px;
   background-color: white;
-  font-size: 22px;
+  font-size: 18px;
   padding: 10px;
   border: none;
-  outline: none; 
+  outline: none;
 }
 
-#inputBusqueda:focus 
+#inputBusqueda:focus
 {
   outline: 5px solid grey;
   outline-offset: -5px;
 }
 
-#botonBusqueda 
+#botonBusqueda
 {
-  height: 50px;
-  width: 80px;
+  height: 35px;
+  width: 150px;
   background-color: gray;
   cursor: pointer;
   border: none;
   float: right;
-  font-size: 15pt;
+  font-size: 18pt;
 }
 
-#botonBusqueda:hover 
+#botonBusqueda:hover
 {
   outline: none;
   background-color: dimgray;
@@ -124,7 +124,7 @@ body
 {
   font-size: 20pt;
   color: white;
-  display: inline-block;  
+  display: inline-block;
 }
 
 #infoUsuario
@@ -132,7 +132,7 @@ body
   display: none;
 }
 
-#panelFooter 
+#panelFooter
 {
   height: auto;
   width: auto;
@@ -145,12 +145,12 @@ body
 
 /* ----------------------- Estilos Autocompletado ----------------------- */
 
-.ui-autocomplete 
+.ui-autocomplete
 {
   font-size: 22px;
 }
 
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-state-active.ui-button:hover 
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-state-active.ui-button:hover
 {
   border: 1px gray;
   background-color: #6E6E6E;

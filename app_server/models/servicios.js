@@ -5,11 +5,6 @@ const comentarioSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  fecha: {
-    type: Date, 
-    "default": Date.now,
-    required: true
-  },
   texto: {
     type: String,
     required: true

@@ -1,27 +1,27 @@
 body
-{ 
+{
   margin: 0 !important;
   padding: 0 !important;
   overflow: auto;
   background-color: #1C1C1C;
 }
 
-#map 
+#map
 {
   height: 100%;
   width: 100%;
 }
 
-#panelMapaServicios 
+#panelMapaServicios
 {
   height: 300px;
-  width: 860px;  
+  width: 860px;
   margin: 50px auto;
   padding: 10px;
   background-color: grey;
 }
 
-#panelServicios 
+#panelServicios
 {
   height: auto;
   width: 860px;
@@ -83,31 +83,31 @@ body
 
 #panelBotoneraServicios
 {
-  height: 50px;
-  width: 150px;
+  height: 35px;
+  width: 200px;
   margin: 30px auto;
   margin-bottom: 0px;
   text-align: center;
 }
 
 #botonComentar
-{ 
-  height: 50px;
-  width: 150px;
-  margin-right: 10px;   
+{
+  height: 35px;
+  width: 200px;
+  margin-right: 10px;
   cursor: pointer;
   border: none;
   background-color: grey;
   font-size: 17pt;
 }
 
-#botonComentar:hover 
+#botonComentar:hover
 {
   outline: none;
   background-color: dimgray;
 }
 
-#panelFooter 
+#panelFooter
 {
   height: auto;
   width: auto;

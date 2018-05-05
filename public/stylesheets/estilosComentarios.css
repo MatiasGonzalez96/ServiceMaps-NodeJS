@@ -1,5 +1,5 @@
 body
-{ 
+{
   margin: 0 !important;
   padding: 0 !important;
   overflow: auto;
@@ -13,7 +13,6 @@ body
   margin: 50px auto;
   background-color: #BDBDBD;
   padding: 10px;
-  display: none;
 }
 
 #listaComentarios
@@ -37,13 +36,13 @@ body
 #cajaComentarios
 {
   width: 100%;
-  height: 100px;
-  padding: 10px;  
+  height: 150px;
+  padding: 10px;
   background-color: white;
   font-size: 22px;
 }
 
-#cajaComentarios:focus 
+#cajaComentarios:focus
 {
   outline: 5px solid grey;
   outline-offset: -5px;
@@ -51,23 +50,23 @@ body
 
 #panelBotoneraComentarios
 {
-  height: 50px;
+  height: 35px;
   width: auto;
   margin: 20px auto;
   text-align: center;
 }
 
 .botonComentarios
-{ 
-  height: 50px;
-  width: 125px;   
+{
+  height: 35px;
+  width: 175px;
   cursor: pointer;
   border: none;
   background-color: gray;
   font-size: 17pt;
 }
 
-.botonComentarios:hover 
+.botonComentarios:hover
 {
   outline: none;
   background-color: dimgray;
@@ -113,7 +112,7 @@ body
   padding: 20px;
 }
 
-#etiquetaError 
+#etiquetaError
 {
   display: block;
   font-size: 20pt;
@@ -121,7 +120,7 @@ body
   margin: 10px;
 }
 
-#etiquetaAviso 
+#etiquetaAviso
 {
   display: block;
   font-size: 15pt;
@@ -129,7 +128,7 @@ body
   margin: 10px;
 }
 
-#linkInicioError 
+#linkInicioError
 {
   font-size: 18pt;
   color: gray;
@@ -137,12 +136,12 @@ body
   transition: .4s;
 }
 
-#linkInicioError:hover 
+#linkInicioError:hover
 {
   color: black;
 }
 
-#panelFooter 
+#panelFooter
 {
   height: auto;
   width: auto;
