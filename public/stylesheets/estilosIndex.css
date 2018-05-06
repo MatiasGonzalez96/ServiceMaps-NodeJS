@@ -30,6 +30,15 @@ body
   text-align: center;
 }
 
+#panelBotoneraFiltroDistancias
+{
+  height: 35px;
+  width: 860px;
+  margin: 50px auto;
+  margin-top: 20px;
+  text-align: center;
+}
+
 .botonFiltrar
 {
   width: 210px;
@@ -111,10 +120,10 @@ body
   background-color: dimgray;
 }
 
-#panelDescripcionFiltros
+.panelDescripcionFiltros
 {
   height: auto;
-  width: 350px;
+  width: 860px;
   text-align: center;
   margin: 50px auto;
   margin-bottom: 10px;

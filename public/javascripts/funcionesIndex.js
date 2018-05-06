@@ -1,5 +1,6 @@
 var servicios;
 var marcadores = [];
+var serviciosActuales = [];
 var map;
 var posActual = {};
 
@@ -44,9 +45,11 @@ function initMap()
                   lat: position.coords.latitude,
                   lng: position.coords.longitude
                 };
-                alert(posActual.lat);
-                alert(posActual.lng);
          });
+    }
+    else
+    {
+        ocultarPanelBotoneraFiltrosDistancias();
     }
 
 	// Agrego los marcadores para cada servicio
@@ -87,6 +90,13 @@ function cargarMarcador(servicios)
   marcadores.push(marker);
 }
 
+
+function cultarPanelBotoneraFiltrosDistancias()
+{
+    $("#panelDescripcionFiltrosDistancias").hide();
+    $("#panelBotoneraFiltroDistancias").hide();
+}
+
 $(function() {
   $("#linkInicio").click(function() {
     window.location.href = "/";
@@ -94,66 +104,56 @@ $(function() {
 });
 
 $(function() {
-  $("#filtrarTodos").click(function() {
-    for(var i = 0; i < marcadores.length; i++)
-    {
-      marcadores[i].setMap(null);
-    }
-    for(var i = 0; i < servicios.length; i++)
-    {
-      cargarMarcador(servicios[i]);
-    }
+    $("#filtrarTodos").click(function() {
+        serviciosActuales = [];
+        for(var i = 0; i < marcadores.length; i++)
+        {
+          marcadores[i].setMap(null);
+        }
+        for(var i = 0; i < servicios.length; i++)
+        {
+            serviciosActuales.push(servicios[i]);
+            cargarMarcador(servicios[i]);
+        }
   });
 });
 
 $(function() {
   $("#filtrarEstaciones").click(function() {
-    for(var i = 0; i < marcadores.length; i++)
-    {
-      marcadores[i].setMap(null);
-    }
-    for(var i = 0; i < servicios.length; i++)
-    {
-      if(servicios[i].tipo == "Estación de Servicio")
-      {
-        cargarMarcador(servicios[i]);
-      }
-    }
+    getMarkerByType("Estación de Servicio");
   });
 });
 
 $(function() {
   $("#filtrarGomerias").click(function() {
-    for(var i = 0; i < marcadores.length; i++)
-    {
-      marcadores[i].setMap(null);
-    }
-    for(var i = 0; i < servicios.length; i++)
-    {
-      if(servicios[i].tipo == "Gomería")
-      {
-        cargarMarcador(servicios[i]);
-      }
-    }
+      getMarkerByType("Gomería");
   });
 });
 
 $(function() {
   $("#filtrarTalleres").click(function() {
+      getMarkerByType("Taller Mecánico");
+  });
+});
+
+function getMarkerByType(type)
+{
+    serviciosActuales = [];
     for(var i = 0; i < marcadores.length; i++)
     {
       marcadores[i].setMap(null);
     }
     for(var i = 0; i < servicios.length; i++)
     {
-      if(servicios[i].tipo == "Taller Mecánico")
+      if(servicios[i].tipo == type)
       {
-        cargarMarcador(servicios[i]);
+          serviciosActuales.push(servicios[i]);
+          cargarMarcador(servicios[i]);
       }
     }
-  });
-});
+}
 
+//Show active btns
 $(function()
 {
   var btnContainer = document.getElementById("panelBotoneraFiltro");
@@ -167,23 +167,53 @@ $(function()
   }
 });
 
-$(function() {
-  $("#redonda500").click(function()
+$(function()
+{
+  $("#filtrar100").click(function()
   {
+      getMarkersByDistance(100);
+  });
+});
+
+$(function()
+{
+  $("#filtrar250").click(function()
+  {
+      getMarkersByDistance(250);
+  });
+});
+
+$(function()
+{
+  $("#filtrar500").click(function()
+  {
+      getMarkersByDistance(500);
+  });
+});
+
+$(function()
+{
+  $("#filtrar1000").click(function()
+  {
+      getMarkersByDistance(1000);
+  });
+});
+
+function getMarkersByDistance(distance)
+{
     for(var i = 0; i < marcadores.length; i++)
     {
       marcadores[i].setMap(null);
     }
-    for(var i = 0; i < servicios.length; i++)
+    for(var i = 0; i < serviciosActuales.length; i++)
     {
-        var destino = new google.maps.LatLng(servicios[i].latitud, servicios[i].longitud);
-        if(getDistance(destino) <= 1000)
+        var destino = new google.maps.LatLng(serviciosActuales[i].latitud, serviciosActuales[i].longitud);
+        if(getDistance(destino) <= distance)
         {
-            cargarMarcador(servicios[i]);
+            cargarMarcador(serviciosActuales[i]);
         }
     }
-  });
-});
+}
 
 function getDistance(destino)
  {
