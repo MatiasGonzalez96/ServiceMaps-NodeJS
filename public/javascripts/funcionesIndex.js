@@ -5,7 +5,7 @@ var map;
 var posActual = {};
 
 $(function() {
-  $.get("./API/servicios", function (servs)
+  $.get("./api/servicios", function (servs)
   {
       servicios = servs;
       cargarBusqueda();
