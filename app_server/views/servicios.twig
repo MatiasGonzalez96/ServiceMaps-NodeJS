@@ -2,13 +2,14 @@
 
 {% block stylesheet %}
   <link rel='stylesheet' href='/stylesheets/estilosServicios.css'>
-{% endblock %} 
+{% endblock %}
 
-{% block javascript %}  
+{% block javascript %}
   <script>
     var id = '{{servicio.id}}';
   </script>
   <script src="/javascripts/funcionesServicios.js"></script>
+  <script src="/javascripts/funcionesAPI.js"></script>
 {% endblock %}
 
 {% block body %}
@@ -17,13 +18,17 @@
     <div class="topnav">
       <!-- Left-aligned links (default) -->
       <a id="linkInicio" href="#" class="active">Inicio</a>
-      <a id="linkEstilo" href="#" >Cambiar Estilo</a> 
+      <a id="linkEstilo" href="#" >Cambiar Estilo</a>
+      <!-- Right-aligned links -->
+      <div class="topnav-right" id="panelLogin">
+        <a id="linkLogin" href="#">Iniciar Sesión</a>
+      </div>
     </div>
 
     <!-- Creo panel del mapa -->
     <div id="panelMapaServicios">
       <div id="map" latitud="{{servicio.latitud}}" longitud="{{servicio.longitud}}">
-        <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>   
+        <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>
       </div>
     </div>
 
@@ -35,7 +40,7 @@
 
         {% if servicio.nombre != '' %}
           <span id="nombreServicio">
-            {{ servicio.nombre }} 
+            {{ servicio.nombre }}
           </span>
         {% endif %}
 
@@ -49,7 +54,7 @@
           <!-- Creo las etiquetas -->
 
           {% if servicio.tipo != '' %}
-            <h4 class="etiqueta" id="tipoServicio"><span class="glyphicon glyphicon-cog"></span> 
+            <h4 class="etiqueta" id="tipoServicio"><span class="glyphicon glyphicon-cog"></span>
               Tipo: <b> {{ servicio.tipo }} </b>
             </h4>
           {% endif %}
@@ -61,20 +66,20 @@
           {% endif %}
 
           {% if servicio.direccion != '' %}
-            <h4 class="etiqueta" id="telefonoServicio"><span class="glyphicon glyphicon-earphone"></span> 
+            <h4 class="etiqueta" id="telefonoServicio"><span class="glyphicon glyphicon-earphone"></span>
               Teléfono: <b> {{ servicio.telefono }} </b>
             </h4>
           {% endif %}
 
           {% if servicio.horario != '' %}
-            <h4 class="etiqueta" id="horarioServicio"><span class="glyphicon glyphicon-time"></span> 
+            <h4 class="etiqueta" id="horarioServicio"><span class="glyphicon glyphicon-time"></span>
               Horario: <b> {{ servicio.horario }} </b>
             </h4>
-          {% endif %} 
+          {% endif %}
 
           {% if servicio.sitioweb != '' %}
-            <h4 class="etiqueta" id="webServicio"><span class="glyphicon glyphicon-globe"></span> 
-              Sitio web: <a class='info-link' href='http://{{ servicio.sitioweb }}/' target='_blank' rel='noopener'> 
+            <h4 class="etiqueta" id="webServicio"><span class="glyphicon glyphicon-globe"></span>
+              Sitio web: <a class='info-link' href='http://{{ servicio.sitioweb }}/' target='_blank' rel='noopener'>
               {{ servicio.sitioweb }} </a>
             </h4>
           {% endif %}
@@ -98,7 +103,7 @@
     <!-- Creo Footer -->
     <footer>
       <div id="panelFooter">
-          Página web creada por García Matias y González Matias. © 2018 Service Maps.          
+          Página web creada por García Matias y González Matias. © 2018 Service Maps.
       </div>
     </footer>
 
