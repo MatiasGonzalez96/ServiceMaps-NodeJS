@@ -13,6 +13,7 @@ body
   margin: 50px auto;
   background-color: #BDBDBD;
   padding: 10px;
+  display: none;
 }
 
 #listaComentarios

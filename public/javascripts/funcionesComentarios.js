@@ -10,7 +10,7 @@ $(function()
 	}
     else
 	{
-	  	mostrarMensajeLogeo();;
+	  	mostrarMensajeLogeo();
 	}
 });
 
@@ -61,6 +61,20 @@ $(function() {
 $(function() {
   $("#botonVolverComentario").click(function() {
     window.location.href = "/servicios/" + id + "/";
+  });
+});
+
+$(function() {
+  $("#botonVerComentarios").click(function() {
+	  comentarios = localStorage.getItem(nombre);
+	  if (comentarios != undefined)
+	  {
+  	  	$("#panelComentarios").show();
+	  }
+	  else
+	  {
+	  	alert("No hay mensajes disponibles");
+	  }
   });
 });
 
