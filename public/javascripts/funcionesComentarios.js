@@ -5,14 +5,12 @@ $(function()
 	usuario = localStorage.getItem("fb");
 	if (usuario != undefined)
 	{
-			document.getElementById("nombreUsuario").innerHTML += usuario;
+		document.getElementById("nombreUsuario").innerHTML += usuario;
 	  	recuperarComentarios();
 	}
     else
 	{
-	  	//mostrarMensajeLogeo();
-			document.getElementById("nombreUsuario").innerHTML += usuario;
-			recuperarComentarios();
+	  	mostrarMensajeLogeo();;
 	}
 });
 
