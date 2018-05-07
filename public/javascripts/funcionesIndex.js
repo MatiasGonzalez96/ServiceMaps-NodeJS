@@ -1,13 +1,15 @@
 var servicios;
 var marcadores = [];
+var serviciosActuales = [];
 var map;
+var posActual = {};
 
 $(function() {
-  $.get("./API/servicios", function (servs) 
+  $.get("./api/servicios", function (servs)
   {
       servicios = servs;
       cargarBusqueda();
-      $("body").append("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>");
+      $("body").append("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&libraries=geometry&callback=initMap' async defer></script>");
   });
 });
 
@@ -19,26 +21,42 @@ function initMap()
 	map = new google.maps.Map(document.getElementById('map'), {
 	  	zoom: 13,
 	  	center: bahia,
-    	styles: 
+    	styles:
     	[
 	      	{
 		        featureType: "poi",
 		        elementType: "labels",
-		        stylers: 
+		        stylers:
 		        [
-		          { 
-		          	visibility: "off" 
+		          {
+		          	visibility: "off"
 		          }
 		        ]
 	        }
     	]
-	}); 
+	});
+
+    if (navigator.geolocation)
+    {
+          navigator.geolocation.getCurrentPosition(function(position)
+          {
+                posActual =
+                {
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude
+                };
+         });
+    }
+    else
+    {
+        ocultarPanelBotoneraFiltrosDistancias();
+    }
 
 	// Agrego los marcadores para cada servicio
-	for (i = 0; i < servicios.length; i++) 
+	for (i = 0; i < servicios.length; i++)
 	{
 	    cargarMarcador(servicios[i]);
-	}	
+	}
 }
 
 function cargarMarcador(servicios)
@@ -65,11 +83,18 @@ function cargarMarcador(servicios)
 	});
 
 	marker.addListener('click', function()
-	{ 
+	{
     	window.location.href = this.url;
   });
 
   marcadores.push(marker);
+}
+
+
+function cultarPanelBotoneraFiltrosDistancias()
+{
+    $("#panelDescripcionFiltrosDistancias").hide();
+    $("#panelBotoneraFiltroDistancias").hide();
 }
 
 $(function() {
@@ -79,66 +104,56 @@ $(function() {
 });
 
 $(function() {
-  $("#filtrarTodos").click(function() {
-    for(var i = 0; i < marcadores.length; i++)
-    {
-      marcadores[i].setMap(null);
-    }
-    for(var i = 0; i < servicios.length; i++)
-    {
-      cargarMarcador(servicios[i]);        
-    }
+    $("#filtrarTodos").click(function() {
+        serviciosActuales = [];
+        for(var i = 0; i < marcadores.length; i++)
+        {
+          marcadores[i].setMap(null);
+        }
+        for(var i = 0; i < servicios.length; i++)
+        {
+            serviciosActuales.push(servicios[i]);
+            cargarMarcador(servicios[i]);
+        }
   });
 });
 
 $(function() {
   $("#filtrarEstaciones").click(function() {
-    for(var i = 0; i < marcadores.length; i++)
-    {
-      marcadores[i].setMap(null);
-    }
-    for(var i = 0; i < servicios.length; i++)
-    {
-      if(servicios[i].tipo == "Estación de Servicio")
-      {
-        cargarMarcador(servicios[i]);
-      }
-    }    
+    getMarkerByType("Estación de Servicio");
   });
 });
 
 $(function() {
   $("#filtrarGomerias").click(function() {
-    for(var i = 0; i < marcadores.length; i++)
-    {
-      marcadores[i].setMap(null);
-    }
-    for(var i = 0; i < servicios.length; i++)
-    {
-      if(servicios[i].tipo == "Gomería")
-      {
-        cargarMarcador(servicios[i]);
-      }
-    }    
+      getMarkerByType("Gomería");
   });
 });
 
 $(function() {
   $("#filtrarTalleres").click(function() {
+      getMarkerByType("Taller Mecánico");
+  });
+});
+
+function getMarkerByType(type)
+{
+    serviciosActuales = [];
     for(var i = 0; i < marcadores.length; i++)
     {
       marcadores[i].setMap(null);
     }
     for(var i = 0; i < servicios.length; i++)
     {
-      if(servicios[i].tipo == "Taller Mecánico")
+      if(servicios[i].tipo == type)
       {
-        cargarMarcador(servicios[i]);
+          serviciosActuales.push(servicios[i]);
+          cargarMarcador(servicios[i]);
       }
-    }    
-  });
-});
+    }
+}
 
+//Show active btns
 $(function()
 {
   var btnContainer = document.getElementById("panelBotoneraFiltro");
