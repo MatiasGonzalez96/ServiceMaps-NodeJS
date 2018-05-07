@@ -14,10 +14,14 @@ $(function()
 	}
 });
 
-function guardarComentarios()
+function guardarComentario()
 {
 	var comentarios = document.getElementById("listaComentarios").innerHTML;
 	localStorage.setItem(nombre, comentarios);
+
+	//guardar en la base de datos
+
+
 }
 
 function recuperarComentarios()
@@ -93,7 +97,7 @@ $(function()
 		midiv.innerHTML = "<h5> <b>"+ usuario +"</b> </hs> <hr> <h6>"+ comentario + "</h6>";
 		document.getElementById("listaComentarios").appendChild(midiv);
 
-		guardarComentarios();
+		guardarComentario();
 
 		$("#cajaComentarios").attr("placeholder", "Inserte comentario*");
 		document.getElementById("cajaComentarios").value = "";

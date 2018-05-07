@@ -2,7 +2,6 @@ var servicios;
 var marcadores = [];
 var serviciosActuales = [];
 var map;
-var posActual = {};
 
 $(function() {
   $.get("./api/servicios", function (servs)
@@ -35,22 +34,6 @@ function initMap()
 	        }
     	]
 	});
-
-    if (navigator.geolocation)
-    {
-          navigator.geolocation.getCurrentPosition(function(position)
-          {
-                posActual =
-                {
-                  lat: position.coords.latitude,
-                  lng: position.coords.longitude
-                };
-         });
-    }
-    else
-    {
-        ocultarPanelBotoneraFiltrosDistancias();
-    }
 
 	// Agrego los marcadores para cada servicio
 	for (i = 0; i < servicios.length; i++)
