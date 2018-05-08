@@ -1,4 +1,4 @@
-window.fbAsyncInit = function() 
+window.fbAsyncInit = function()
 {
     FB.init({
       appId            : '1071078366372805',
@@ -6,18 +6,18 @@ window.fbAsyncInit = function()
       xfbml            : true,
       version          : 'v2.12'
     });
-}; 
+};
 
 function fb_login()
 {
-    FB.login(function(response) 
+    FB.login(function(response)
     {
-        if (response.authResponse) 
+        if (response.authResponse)
         {
             access_token = response.authResponse.accessToken; //get access token
             user_id = response.authResponse.userID; //get FB UID
 
-            FB.api('/me', function(response) 
+            FB.api('/me', function(response)
             {
                 user_email = response.email; //get user email
 
@@ -25,15 +25,16 @@ function fb_login()
                 document.getElementById("infoUsuario").innerHTML = "Bienvenido/a " + response.name;
                 localStorage.setItem("fb", response.name);
                 getLogoutPanel();
-                // you can store this data into your database             
+                document.location.reload();
+                // you can store this data into your database
             });
-        } 
-        else 
+        }
+        else
         {
             //user hit cancel button
             console.log('User cancelled login or did not fully authorize.');
         }
-    }, 
+    },
     {
         scope: 'public_profile,email'
     });
@@ -57,11 +58,11 @@ $(function() {
 $(function()
  {
   var usuario = localStorage.getItem("fb");
-  if (usuario != undefined) 
+  if (usuario != undefined)
   {
     document.getElementById("infoUsuario").innerHTML = "Bienvenido/a " + usuario;
     $("#infoUsuario").show();
-    getLogoutPanel();        
+    getLogoutPanel();
   }
 });
 
@@ -78,7 +79,7 @@ function getLogoutPanel()
   {
       log.addEventListener('click', logout, false);
   }
-  else 
+  else
   {
       log.attachEvent('onclick', logout);
   }
