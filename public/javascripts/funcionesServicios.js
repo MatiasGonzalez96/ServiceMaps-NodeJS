@@ -29,12 +29,6 @@ function initMap()
 
               mostrarDistanciaServicio();
 
-              markerA = new google.maps.Marker({
-                  position: posActual,
-                  title: "Mi Ubicación",
-                  map: map
-              });
-
               directionsService = new google.maps.DirectionsService,
               directionsDisplay = new google.maps.DirectionsRenderer({
                 map: map
@@ -44,11 +38,13 @@ function initMap()
               calculateAndDisplayRoute(directionsService, directionsDisplay, posActual, ubicacionServicio);
        });
   }
-
-  var markerB = new google.maps.Marker({
-    position: ubicacionServicio,
-    map: map,
-  });
+  else
+  {
+    var markerB = new google.maps.Marker({
+      position: ubicacionServicio,
+      map: map,
+    });
+  }
 }
 
 $(function() {
