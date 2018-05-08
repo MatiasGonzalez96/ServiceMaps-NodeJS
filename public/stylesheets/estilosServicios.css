@@ -14,7 +14,7 @@ body
 
 #panelMapaServicios
 {
-  height: 300px;
+  height: 500px;
   width: 860px;
   margin: 50px auto;
   padding: 10px;
@@ -66,13 +66,29 @@ body
   height: auto;
   margin: 50px auto;
   margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#panelDistancia
+{
+  width: auto;
+  height: auto;
+  margin: 50px auto;
+  margin-top: 10px;
   text-align: center;
 }
 
 #nombreServicio
 {
-  font-size: 20pt;
+  font-size: 22pt;
   color: #6E6E6E;
+}
+
+#distanciaServicio
+{
+  font-size: 14pt;
+  color: black;
 }
 
 .etiqueta

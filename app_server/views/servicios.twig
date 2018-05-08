@@ -32,7 +32,7 @@
     <!-- Creo panel del mapa -->
     <div id="panelMapaServicios">
       <div id="map" latitud="{{servicio.latitud}}" longitud="{{servicio.longitud}}">
-        <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&callback=initMap' async defer></script>
+        <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&libraries=geometry&callback=initMap' async defer></script>
       </div>
     </div>
 
@@ -48,6 +48,11 @@
           </span>
         {% endif %}
 
+      </div>
+
+      <div id="panelDistancia">
+        <span id="distanciaServicio">
+        </span>
       </div>
 
       <div id="panelInfoImagen">
