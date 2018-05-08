@@ -8,12 +8,11 @@ body
 
 #panelComentarios
 {
-  height: 300px;
+  height: auto;
   width: 860px;
   margin: 50px auto;
   background-color: #BDBDBD;
   padding: 10px;
-  display: none;
 }
 
 #listaComentarios
@@ -86,9 +85,26 @@ body
   width: 95%;
   height: auto;
   margin: 10px auto;
-  background-color: #D8D8D8;
+  background-color: #8181F7;
   padding: 20px;
+  font-size: 20px;
   overflow-x: auto;
+}
+
+#formatoComentariosNombre
+{
+  font-size: 24px;
+  color: black;
+}
+
+#formatoComentariosTexto
+{
+  font-size: 19px;
+}
+
+#formatoComentariosFecha
+{
+  font-size: 13px;
 }
 
 #panelUsuarioActual
@@ -129,7 +145,7 @@ body
   margin: 10px;
 }
 
-#linkInicioError
+#linkVolverError
 {
   font-size: 18pt;
   color: gray;
@@ -137,9 +153,14 @@ body
   transition: .4s;
 }
 
-#linkInicioError:hover
+#linkVolverError:hover
 {
   color: black;
+}
+
+#infoUsuario
+{
+  display: none;
 }
 
 #panelFooter

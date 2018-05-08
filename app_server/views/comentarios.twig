@@ -6,7 +6,7 @@
 
 {% block javascript %}
   <script>
-    var id = '{{servicio.id}}';
+    var idServicio = '{{servicio.id}}';
     var nombre = '{{servicio.nombre}}';
   </script>
   <script src="/javascripts/funcionesComentarios.js"></script>
@@ -17,6 +17,10 @@
 
 	<!-- Creo barra de busquedas -->
     <div class="topnav">
+    <!-- Centered link -->
+    <div class="topnav-centered">
+      <a id="infoUsuario" class="active"></a>
+    </div>
       <!-- Left-aligned links (default) -->
       <a id="linkInicio" href="#" class="active">Inicio</a>
       <a id="linkEstilo" href="#" >Cambiar Estilo</a>
@@ -43,7 +47,6 @@
         <!-- Panel para la botonera -->
         <div id="panelBotoneraComentarios">
           <button type="button" class="botonComentarios" id="botonPostear">Postear</button>
-          <button type="button" class="botonComentarios" id="botonVerComentarios">Ver Comentarios</button>
           <button type="button" class="botonComentarios" id="botonVolverComentario">Volver</button>
         </div>
 
@@ -56,7 +59,7 @@
       <div id="listaComentarios">
 
       {% for comentario in servicio.comentarios %}
-        {% include 'creacionComentarios.twig' %}
+        {% include 'comentariosPlantilla.twig' %}
       {% endfor %}
 
       </div>

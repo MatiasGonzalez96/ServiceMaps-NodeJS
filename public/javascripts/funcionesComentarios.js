@@ -1,37 +1,16 @@
-var usuario;
 
 $(function()
 {
-	usuario = localStorage.getItem("fb");
+	var usuario = localStorage.getItem("fb");
 	if (usuario != undefined)
 	{
-		document.getElementById("nombreUsuario").innerHTML += usuario;
-	  	recuperarComentarios();
+			document.getElementById("nombreUsuario").innerHTML += usuario;
 	}
     else
 	{
 	  	mostrarMensajeLogeo();
 	}
 });
-
-function guardarComentario()
-{
-	var comentarios = document.getElementById("listaComentarios").innerHTML;
-	localStorage.setItem(nombre, comentarios);
-
-	//guardar en la base de datos
-
-
-}
-
-function recuperarComentarios()
-{
-	var t = localStorage.getItem(nombre);
-	if (t != null)
-	{
-		document.getElementById("listaComentarios").innerHTML = t;
-	}
-}
 
 function mostrarMensajeLogeo()
 {
@@ -42,10 +21,9 @@ function mostrarMensajeLogeo()
 
 	$("#panelError").html("<span id='etiquetaError'><b>¡Debe iniciar sesión para dejar su comentario!</b></span>");
 
-	var stringAviso = "Para ello, vuelva a la página de inicio";
-	$("#panelError").append("<span id='etiquetaAviso'>"+ stringAviso + "</span>");
+	var rutaVolver = "/servicios/" + idServicio + "/";
 
-	$("#panelError").append("<span id='etiquetaAviso'><a id='linkInicioError' href='/'>Volver al inicio</a></span>");
+	$("#panelError").append("<span id='etiquetaAviso'><a id='linkVolverError' href='"+rutaVolver+"'>Volver</a></span>");
 }
 
 function ocultarPaneles()
@@ -64,51 +42,84 @@ $(function() {
 
 $(function() {
   $("#botonVolverComentario").click(function() {
-    window.location.href = "/servicios/" + id + "/";
+    window.location.href = "/servicios/" + idServicio + "/";
   });
 });
 
 $(function() {
-  $("#botonVerComentarios").click(function() {
-	  comentarios = localStorage.getItem(nombre);
-	  if (comentarios != undefined)
-	  {
-  	  	$("#panelComentarios").show();
-	  }
-	  else
-	  {
-	  	alert("No hay mensajes disponibles");
-	  }
+  $("#botonPostear").click(function() {
+    guardarComentario();
   });
 });
 
-$(function()
+function guardarComentario()
 {
-  $("#botonPostear").click(function()
-  {
-	var comentario = document.getElementById("cajaComentarios").value;
-	if (comentario != null && comentario != "")
-	{
-		var comentario = document.getElementById("cajaComentarios").value;
+    const coment = $('#cajaComentarios').val();
+    //const user = localStorage.getItem("fb");
+    const user = "matias";
+		const date = new Date();
 
-		//Creo el panel con el comentario
-		var midiv = document.createElement("div");
-		midiv.setAttribute("id", "panelFormatoComentario");
-		midiv.innerHTML = "<h5> <b>"+ usuario +"</b> </hs> <hr> <h6>"+ comentario + "</h6>";
-		document.getElementById("listaComentarios").appendChild(midiv);
+		if(coment != "")
+		{
 
-		guardarComentario();
+	    $.ajax({
+	        url: '/api/comentarios/'+idServicio,
+	        type: 'POST',
+	        data: JSON.stringify({id: idServicio, comentario : coment, usuario: user, fecha: date}),
+	        contentType: "application/json",
+	        dataType: "json",
+	        success: function () {
+	            mostrarComentario(coment, user, date);
+	        },
+	        error: function (data) {
+	            console.log("error");
+	        }
+	    });
+		}
+		else
+		{
+			alert("Debe ingresar un comentario");
+		}
+}
 
-		$("#cajaComentarios").attr("placeholder", "Inserte comentario*");
-		document.getElementById("cajaComentarios").value = "";
+function mostrarComentario(comentario, usuario, date)
+{
+	$("#listaComentarios").empty();
 
-		alert("Comentario cargado con éxito");
+	//Creo el panel con el comentario
+	var midiv = document.createElement("div");
+	midiv.setAttribute("id", "panelFormatoComentario");
 
-		$("#panelComentarios").show();
-	}
-	else
-	{
-		alert("No se cargó ningún comentario");
-	}
-  });
-});
+	var span1 = document.createElement("span");
+	span1.setAttribute("id", "formatoComentariosNombre");
+	span1.innerHTML = "<b> Usuario: " + usuario + "</b>";
+
+	var span2 = document.createElement("span");
+	span2.setAttribute("id", "formatoComentariosFecha");
+	span2.innerHTML = "<b> Fecha: " + date + "</b>";
+
+	var span3 = document.createElement("span");
+	span3.setAttribute("id", "formatoComentariosTexto");
+	var textoSpan3 = document.createTextNode(comentario);
+	span3.appendChild(textoSpan3);
+
+	var separador = document.createElement("hr");
+
+	var enter = document.createElement("br");
+
+	midiv.appendChild(span1);
+	midiv.appendChild(enter);
+	midiv.appendChild(span2);
+	midiv.appendChild(separador);
+	midiv.appendChild(span3);
+
+	document.getElementById("listaComentarios").appendChild(midiv);
+
+	mostrarPaneles();
+}
+
+function mostrarPaneles()
+{
+	$("#cajaComentarios").attr("placeholder", "Inserte comentario*");
+	document.getElementById("cajaComentarios").value = "";
+}

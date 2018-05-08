@@ -1,56 +1,28 @@
 const mongoose = require('mongoose');
 const Servicio = mongoose.model('Servicio');
 
-const obtenerComentarios = function(req, res)
+const setComentario = function(req,res)
 {
-	Servicio
-	.findById(req.params.id)
-	.select('comentarios')
-	.exec(
-		function(err, servicio)
-		{
-			if(err)
-			{
-				res.status(404).json(err);
-			}
-			else
-			{
-				if (servicio.comentarios)
-				{
-					res.status(404).json(servicio.comentarios);
-				}
-			}
-		});
-};
+    console.log("ID: "+req.body.id);
+    console.log("COMENTARIO: "+req.body.comentario);
+    console.log("USUARIO: "+ req.body.usuario);
+    console.log("FECHA: "+ req.body.fecha);
 
-const crearComentario = function(req, res)
-{
-	Servicio
-	.findById(req.params.id)
-	.select('comentarios')
-	.exec(
-		function(err, servicio)
-		{
-			if(err)
-			{
-				res.status(404).json(err);
-			}
-			else
-			{
-				agregarComentario(req, res, servicio);
-			}
-		});
-};
-
-var agregarComentario = function(req, res, servicio)
-{
-	servicio.comentarios.push({
-		usuario: req.body.usuario,
-		texto: req.body.texto
-	});
-};
+    Servicio.update({'id': req.body.id},{ "$push": { "comentarios": { "usuario" :  req.body.usuario, "comentario" : req.body.comentario}}},
+        {upsert: true, setDefaultsOnInsert: true}, (err, comentario) => {
+            if (err) {
+                res
+                    .status(400)
+                    .json(err);
+            } else {
+                console.log("Comentario Agregado");
+                res
+                    .status(201)
+                    .json(comentario);
+            }
+        })
+}
 
 module.exports = {
-	obtenerComentarios,
-	crearComentario
+	setComentario
 };

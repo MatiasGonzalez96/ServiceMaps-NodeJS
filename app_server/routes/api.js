@@ -7,8 +7,7 @@ const ctrlComentarios = require('../controllers/comentariosAPI');
 //Servicios
 router.get('/servicios', ctrlServicios.getServicios);
 
-//Comentarios 
-router.get('/servicios/comentarios/:id', ctrlComentarios.obtenerComentarios); 
-router.post('/servicios/comentarios/:id', ctrlComentarios.crearComentario);
+//comentarios
+router.post('/comentarios/:id', ctrlComentarios.setComentario);
 
 module.exports = router;

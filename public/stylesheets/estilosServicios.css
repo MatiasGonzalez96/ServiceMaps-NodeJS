@@ -78,7 +78,7 @@ body
 .etiqueta
 {
   padding: 0 0 0 5px;
-  font-size: 15pt;
+  font-size: 14pt;
 }
 
 #panelBotoneraServicios
@@ -105,6 +105,11 @@ body
 {
   outline: none;
   background-color: dimgray;
+}
+
+#infoUsuario
+{
+  display: none;
 }
 
 #panelFooter
