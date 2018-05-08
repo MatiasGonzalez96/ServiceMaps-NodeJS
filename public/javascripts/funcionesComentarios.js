@@ -55,8 +55,7 @@ $(function() {
 function guardarComentario()
 {
     const coment = $('#cajaComentarios').val();
-    //const user = localStorage.getItem("fb");
-    const user = "matias";
+    const user = localStorage.getItem("fb");
 		const date = new Date();
 
 		if(coment != "")
