@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-//const dbURI = 'mongodb://localhost/servs';
-const dbURI = process.env.MLAB_URI;
+const dbURI = 'mongodb://localhost/servs';
+//const dbURI = process.env.MLAB_URI;
 mongoose.connect(dbURI);
 
 mongoose.connection.on('connected', () => {
@@ -38,3 +38,4 @@ process.on('SIGTERM', () => {
 });
 
 require('./servicios');
+require('./temas');

@@ -1,33 +1,49 @@
-$(function() 
-{
-  var id = localStorage.getItem("tema");
-  if (id != undefined) 
+var valor;
+
+$(function() {
+  $.get("/api/tema", function (tema)
   {
-    if (id == 1) 
+    var temaActual = tema[0];
+    valor = temaActual.valor;
+    if (valor == 1)
     {
       $("#temaActual").attr("href", "/stylesheets/estiloTurbo.css");
     }
-  }
-  else
-  {
-    localStorage.setItem("tema", 0);
-  }
+  });
 });
 
-$(function() 
+$(function()
 {
-  $("#linkEstilo").click(function() 
+  $("#linkEstilo").click(function()
   {
-    var id = localStorage.getItem("tema");
-    if (id == 0) 
+    if (valor == "0")
     {
-      localStorage.setItem("tema", 1);
+      guardarEnBaseDeDatos("1");
       $("link[href='/stylesheets/estiloClasico.css']").attr("href", "/stylesheets/estiloTurbo.css");
-    } 
-    else 
+      valor = "1";
+    }
+    else
     {
-      localStorage.setItem("tema", 0);
+      guardarEnBaseDeDatos("0");
       $("link[href='/stylesheets/estiloTurbo.css']").attr("href", "/stylesheets/estiloClasico.css");
+      valor = "0";
     }
   });
 });
+
+function guardarEnBaseDeDatos(val)
+{
+  $.ajax({
+      url: '/api/tema',
+      type: 'POST',
+      data: JSON.stringify({id: "1", valor: val}),
+      contentType: "application/json",
+      dataType: "json",
+      success: function () {
+          console.log("exito");
+      },
+      error: function (data) {
+          console.log("error");
+      }
+  });
+}
