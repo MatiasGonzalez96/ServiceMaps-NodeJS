@@ -7,7 +7,6 @@
 {% block javascript %}
   <script>
     var idServicio = '{{servicio.id}}';
-    var coments = '{{servicio.comentarios}}';
   </script>
   <script src="/javascripts/funcionesComentarios.js"></script>
   <script src="/javascripts/funcionesAPI.js"></script>
@@ -57,6 +56,12 @@
     <!-- Panel que muestra los comentarios -->
     <div id= "panelComentarios">
       <div id="listaComentarios">
+
+      {% if servicio.comentarios != '' %}
+        <script>
+          $("#panelComentarios").show();
+        </script>
+      {% endif %}
 
       {% for comentario in servicio.comentarios %}
         {% include 'comentariosPlantilla.twig' %}

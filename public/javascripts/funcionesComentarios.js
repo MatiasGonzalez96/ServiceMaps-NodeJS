@@ -10,11 +10,6 @@ $(function()
 	{
 	  	mostrarMensajeLogeo();
 	}
-
-	if(coments != "")
-	{
-		$("#panelComentarios").show();
-	}
 });
 
 function mostrarMensajeLogeo()
@@ -126,4 +121,6 @@ function mostrarPaneles()
 {
 	$("#cajaComentarios").attr("placeholder", "Inserte comentario*");
 	document.getElementById("cajaComentarios").value = "";
+
+	$("#panelComentarios").show();
 }
