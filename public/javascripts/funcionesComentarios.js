@@ -83,8 +83,6 @@ function guardarComentario()
 
 function mostrarComentario(comentario, usuario, date)
 {
-	$("#listaComentarios").empty();
-
 	//Creo el panel con el comentario
 	var midiv = document.createElement("div");
 	midiv.setAttribute("id", "panelFormatoComentario");
