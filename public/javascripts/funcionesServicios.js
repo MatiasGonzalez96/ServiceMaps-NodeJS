@@ -17,6 +17,11 @@ function initMap()
     ]
   });
 
+  var markerB = new google.maps.Marker({
+    position: ubicacionServicio,
+    map: map,
+  });
+
   if (navigator.geolocation)
   {
         navigator.geolocation.getCurrentPosition(function(position)
@@ -29,6 +34,8 @@ function initMap()
 
               mostrarDistanciaServicio();
 
+              markerB.setMap(null);
+
               directionsService = new google.maps.DirectionsService,
               directionsDisplay = new google.maps.DirectionsRenderer({
                 map: map
@@ -38,13 +45,8 @@ function initMap()
               calculateAndDisplayRoute(directionsService, directionsDisplay, posActual, ubicacionServicio);
        });
   }
-  else
-  {
-    var markerB = new google.maps.Marker({
-      position: ubicacionServicio,
-      map: map,
-    });
-  }
+
+
 }
 
 $(function() {
