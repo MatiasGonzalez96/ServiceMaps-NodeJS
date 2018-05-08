@@ -10,6 +10,11 @@ $(function()
 	{
 	  	mostrarMensajeLogeo();
 	}
+
+	if(coments != "")
+	{
+		$("#panelComentarios").show();
+	}
 });
 
 function mostrarMensajeLogeo()
