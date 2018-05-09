@@ -142,3 +142,16 @@ body
   margin-top: 100px;
   font-size: 16px;
 }
+
+
+/* Autocomplete
+----------------------------------*/
+
+.ui-autocomplete {
+  font-size: 18px;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-state-active.ui-button:hover {
+  border: 1px solid #6E6E6E;
+  background-color: #6E6E6E;
+}
