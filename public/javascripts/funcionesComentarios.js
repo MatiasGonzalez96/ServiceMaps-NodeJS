@@ -77,7 +77,7 @@ function guardarComentario()
 		}
 		else
 		{
-			alert("Debe ingresar un comentario");
+			swal("¡Debe introducir algún comentario!", "", "error");
 		}
 }
 
@@ -113,6 +113,8 @@ function mostrarComentario(comentario, usuario, date)
 	document.getElementById("listaComentarios").appendChild(midiv);
 
 	mostrarPaneles();
+
+	mostrarMensajeExito();
 }
 
 function mostrarPaneles()
@@ -121,4 +123,9 @@ function mostrarPaneles()
 	document.getElementById("cajaComentarios").value = "";
 
 	$("#panelComentarios").show();
+}
+
+function mostrarMensajeExito()
+{
+	swal("¡Buen trabajo!", "¡Comentario cargado correctamente!", "success");
 }
