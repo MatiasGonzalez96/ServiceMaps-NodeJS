@@ -3,7 +3,7 @@
   <head>
 
     <title>{{ title }}</title>
-    
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=860">
     <link rel="shortcut icon" href="/images/icon/favicon.ico">
@@ -13,19 +13,42 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel='stylesheet' href='/stylesheets/estiloClasico.css' id="temaActual">
     <link rel='stylesheet' href='/stylesheets/estilosBarra.css'>
-    {% block stylesheet %}{% endblock %}    
+    {% block stylesheet %}{% endblock %}
 
-    <!-- Cargo scripts externos -->    
+    <!-- Cargo scripts externos -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="/javascripts/funcionesEstilos.js"></script>
     {% block javascript %}{% endblock %}
-    
-  </head>
-  <body>    
 
-	{% block body %}{% endblock %} 
+  </head>
+  <body>
+
+    <!-- Creo barra de busquedas -->
+    <div class="topnav">
+      <!-- Centered link -->
+      <div class="topnav-centered">
+        <a id="infoUsuario" class="active"></a>
+      </div>
+      <!-- Left-aligned links (default) -->
+      <a id="linkInicio" href="#" class="active">Inicio</a>
+      <a id="linkEstilo" href="#" >Cambiar Estilo</a>
+      <!-- Right-aligned links -->
+      <div class="topnav-right" id="panelLogin">
+        <a id="linkLogin" href="#">Iniciar Sesión</a>
+      </div>
+    </div>
+
+	{% block body %}{% endblock %}
+
+      <!-- Creo Footer -->
+      <footer>
+        <div id="panelFooter">
+            Página web creada por García Matias y González Matias. © 2018 Service Maps.
+        </div>
+      </footer>
 
   </body>
 </html>

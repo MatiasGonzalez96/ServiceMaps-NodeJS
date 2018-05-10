@@ -14,21 +14,6 @@
 
 {% block body %}
 
-	<!-- Creo barra de busquedas -->
-    <div class="topnav">
-    <!-- Centered link -->
-    <div class="topnav-centered">
-      <a id="infoUsuario" class="active"></a>
-    </div>
-      <!-- Left-aligned links (default) -->
-      <a id="linkInicio" href="#" class="active">Inicio</a>
-      <a id="linkEstilo" href="#" >Cambiar Estilo</a>
-      <!-- Right-aligned links -->
-      <div class="topnav-right" id="panelLogin">
-        <a id="linkLogin" href="#">Iniciar Sesión</a>
-      </div>
-    </div>
-
     <!-- Etiqueta para identificar el servicio -->
     <h4 id="nombreServicio">¡Deje su comentario a {{ servicio.nombre }}! </h4>
 
@@ -69,12 +54,5 @@
 
       </div>
     </div>
-
-    <!-- Creo Footer -->
-    <footer>
-      <div id="panelFooter">
-          Página web creada por García Matias y González Matias. © 2018 Service Maps.
-      </div>
-    </footer>
 
 {% endblock %}
