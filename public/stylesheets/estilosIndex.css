@@ -143,6 +143,38 @@ body
   font-size: 16px;
 }
 
+#panelInfoWindow
+{
+    width: 350px;
+    height: 100px;
+    margin: auto;
+}
+
+#panelInformacionInfoWindow
+{
+    width: 50%;
+    height: auto;
+    margin: auto;
+    text-align: center;
+    font-size: 15px;
+    float: right;
+}
+
+#panelImagenInfoWindow
+{
+    width: 50%;
+    height: 100px;
+    background-size: 100px 100px;
+    background-size: cover;
+    float: left;
+}
+
+#imagenInfoWindow
+{
+  height: 100%;
+  width: 100%;
+}
+
 
 /* Autocomplete
 ----------------------------------*/

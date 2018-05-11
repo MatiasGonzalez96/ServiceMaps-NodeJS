@@ -5,9 +5,11 @@
 {% endblock %}
 
 {% block javascript %}
+  <script src="/javascripts/funcionesMapa.js"></script>
   <script src="/javascripts/funcionesIndex.js"></script>
   <script src="/javascripts/funcionesBusqueda.js"></script>
   <script src="/javascripts/funcionesAPI.js"></script>
+  <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEttQKWZVwwmLu9Rn9IV37PTCxFIdMNKs&libraries=geometry&callback=initMapIndex' async defer></script>
 {% endblock %}
 
 {% block body %}

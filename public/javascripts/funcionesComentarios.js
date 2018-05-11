@@ -4,7 +4,7 @@ $(function()
 	var usuario = localStorage.getItem("fb");
 	if (usuario != undefined)
 	{
-			document.getElementById("nombreUsuario").innerHTML += usuario;
+		document.getElementById("nombreUsuario").innerHTML += usuario;
 	}
     else
 	{
@@ -16,69 +16,87 @@ function mostrarMensajeLogeo()
 {
 	ocultarPaneles();
 
-	var midiv = document.getElementById("panelFormulario");
-	midiv.setAttribute("id","panelError");
+	var divError = document.getElementById("panelFormulario");
+	divError.setAttribute("id","panelError");
 
+	//Creo el panel de error
 	$("#panelError").html("<span id='etiquetaError'><b>¡Debe iniciar sesión para dejar su comentario!</b></span>");
 
-	var rutaVolver = "/servicios/" + idServicio + "/";
+	var miBoton = document.createElement("button");
+	miBoton.setAttribute("class", "botonComentarios");
+	miBoton.setAttribute("onclick", "volverServicio()");
+	miBoton.innerHTML = "Volver a Servicios";
 
-	$("#panelError").append("<span id='etiquetaAviso'><a id='linkVolverError' href='"+rutaVolver+"'>Volver</a></span>");
+	var miDiv = document.createElement("div");
+	miDiv.setAttribute("id", "panelBotoneraComentarios");
+	miDiv.appendChild(miBoton);
+
+	$("#panelError").append(miDiv);
+}
+
+function volverServicio()
+{
+	window.location.href = "/servicios/" + idServicio + "/";
 }
 
 function ocultarPaneles()
 {
-	$("#nombreServicio").hide();
 	$("#panelUsuarioActual").hide();
 	$("#cajaComentarios").hide();
 	$("#panelBotoneraComentarios").hide();
 }
 
-$(function() {
-  $("#linkInicio").click(function() {
-    window.location.href = "/";
-  });
+$(function()
+{
+	$("#linkInicio").click(function()
+	{
+		window.location.href = "/";
+	});
 });
 
-$(function() {
-  $("#botonVolverComentario").click(function() {
-    window.location.href = "/servicios/" + idServicio + "/";
-  });
+$(function()
+{
+	$("#botonVolverComentario").click(function()
+	{
+		window.location.href = "/servicios/" + idServicio + "/";
+	});
 });
 
-$(function() {
-  $("#botonPostear").click(function() {
-    guardarComentario();
-  });
+$(function()
+{
+	$("#botonPostear").click(function()
+	{
+		guardarComentario();
+	});
 });
 
 function guardarComentario()
 {
     const coment = $('#cajaComentarios').val();
     const user = localStorage.getItem("fb");
-		const date = new Date();
+	const date = new Date();
 
-		if(coment != "")
-		{
+	if(coment != "")
+	{
 
-	    $.ajax({
-	        url: '/api/comentarios/'+idServicio,
-	        type: 'POST',
-	        data: JSON.stringify({id: idServicio, comentario : coment, usuario: user, fecha: date}),
-	        contentType: "application/json",
-	        dataType: "json",
-	        success: function () {
-	            mostrarComentario(coment, user, date);
-	        },
-	        error: function (data) {
-	            console.log("error");
-	        }
-	    });
-		}
-		else
-		{
-			swal("¡Debe introducir algún comentario!", "", "error");
-		}
+    $.ajax({
+        url: '/api/comentarios/'+idServicio,
+        type: 'POST',
+        data: JSON.stringify({id: idServicio, comentario : coment, usuario: user, fecha: date}),
+        contentType: "application/json",
+        dataType: "json",
+        success: function () {
+            mostrarComentario(coment, user, date);
+        },
+        error: function (data) {
+            console.log("error");
+        }
+    });
+	}
+	else
+	{
+		swal("¡Debe introducir algún comentario!", "", "error");
+	}
 }
 
 function mostrarComentario(comentario, usuario, date)

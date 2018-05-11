@@ -1,9 +1,9 @@
-var posActual;
+var posActual = "";
 
 function initMap()
 {
-  var ubicacionServicio = new google.maps.LatLng(parseFloat(document.getElementById('map').getAttribute("latitud")), parseFloat(document.getElementById('map').getAttribute("longitud")));
-  var map = new google.maps.Map(document.getElementById("map"), {
+    var ubicacionServicio = new google.maps.LatLng(parseFloat(document.getElementById('map').getAttribute("latitud")), parseFloat(document.getElementById('map').getAttribute("longitud")));
+    var map = new google.maps.Map(document.getElementById("map"), {
     zoom: 15,
     center: ubicacionServicio,
     styles: [
@@ -15,59 +15,66 @@ function initMap()
         ]
       }
     ]
-  });
+    });
 
-  var markerB = new google.maps.Marker({
+    var marcadorServicio = new google.maps.Marker({
     position: ubicacionServicio,
     map: map,
-  });
+    });
 
-  if (navigator.geolocation)
-  {
+    if (navigator.geolocation)
+    {
         navigator.geolocation.getCurrentPosition(function(position)
         {
-              posActual =
-              {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-              };
+            posActual =
+            {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
 
-              mostrarDistanciaServicio();
+            mostrarDistanciaServicio();
 
-              markerB.setMap(null);
+            marcadorServicio.setMap(null);
 
-              directionsService = new google.maps.DirectionsService,
-              directionsDisplay = new google.maps.DirectionsRenderer({
-                map: map
-              }),
+            directionsService = new google.maps.DirectionsService,
+            directionsDisplay = new google.maps.DirectionsRenderer({
+              map: map
+            }),
 
-              // get route from A to B
-              calculateAndDisplayRoute(directionsService, directionsDisplay, posActual, ubicacionServicio);
-       });
-  }
-
-
+            // get route from A to B
+            calculateAndDisplayRoute(directionsService, directionsDisplay, posActual, ubicacionServicio);
+        }, mostrarError);
+    }
 }
 
-$(function() {
-  $("#botonComentar").click(function() {
-    window.location.href = "../comentarios/" + id + "/";
-  });
+function mostrarError(error)
+{
+    swal("Advertencia", "¡Active la ubicación para una mejor experiencia, de lo contrario algunas características no podrán ser mostradas!", "warning");
+}
+
+$(function()
+{
+    $("#botonComentar").click(function()
+    {
+        window.location.href = "../comentarios/" + id + "/";
+    });
 });
 
-$(function() {
-  $("#linkInicio").click(function() {
-    window.location.href = "/";
-  });
+$(function()
+{
+    $("#linkInicio").click(function()
+    {
+        window.location.href = "/";
+    });
 });
 
 function mostrarDistanciaServicio()
 {
-  var latitud = parseFloat(document.getElementById('map').getAttribute("latitud"));
-  var longitud = parseFloat(document.getElementById('map').getAttribute("longitud"));
-  var destino = new google.maps.LatLng(latitud, longitud);
-  var distancia = Math.round(getDistance(destino));
-  document.getElementById("distanciaServicio").innerHTML = "¡Usted se encuentra a " + distancia + " metros del servicio!";
+    var latitud = parseFloat(document.getElementById('map').getAttribute("latitud"));
+    var longitud = parseFloat(document.getElementById('map').getAttribute("longitud"));
+    var destino = new google.maps.LatLng(latitud, longitud);
+    var distancia = Math.round(getDistance(destino));
+    document.getElementById("distanciaServicio").innerHTML = "¡Usted se encuentra a " + distancia + " metros del servicio!";
 }
 
 function getDistance(destino)
@@ -79,15 +86,19 @@ function getDistance(destino)
 
  function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB)
  {
-  directionsService.route({
+    directionsService.route({
     origin: pointA,
     destination: pointB,
     travelMode: google.maps.TravelMode.DRIVING
-  }, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
-    } else {
-      window.alert('Directions request failed due to ' + status);
-    }
-  });
+    }, function(response, status)
+    {
+        if (status == google.maps.DirectionsStatus.OK)
+        {
+          directionsDisplay.setDirections(response);
+        }
+        else
+        {
+          window.alert('Directions request failed due to ' + status);
+        }
+    });
 }

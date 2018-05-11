@@ -8,7 +8,7 @@ body
 
 #panelComentarios
 {
-  height: auto;
+  height: 400px;
   width: 860px;
   margin: 50px auto;
   background-color: #BDBDBD;
@@ -135,27 +135,6 @@ body
   font-size: 20pt;
   text-align: center;
   margin: 10px;
-}
-
-#etiquetaAviso
-{
-  display: block;
-  font-size: 15pt;
-  text-align: center;
-  margin: 10px;
-}
-
-#linkVolverError
-{
-  font-size: 18pt;
-  color: gray;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-#linkVolverError:hover
-{
-  color: black;
 }
 
 #infoUsuario

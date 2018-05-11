@@ -19,14 +19,11 @@ function fb_login()
 
             FB.api('/me', function(response)
             {
-                user_email = response.email; //get user email
-
                 $("#infoUsuario").show();
                 document.getElementById("infoUsuario").innerHTML = "Bienvenido/a " + response.name;
                 localStorage.setItem("fb", response.name);
                 getLogoutPanel();
                 document.location.reload();
-                // you can store this data into your database
             });
         }
         else
@@ -42,58 +39,62 @@ function fb_login()
 
 (function(d, s, id)
 {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
-  js.src = "https://connect.facebook.net/en_US/sdk.js";
-  fjs.parentNode.insertBefore(js, fjs);
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-$(function() {
-    $("#linkLogin").click(function() {
+$(function()
+{
+    $("#linkLogin").click(function()
+    {
         fb_login();
     });
 });
 
 $(function()
- {
-  var usuario = localStorage.getItem("fb");
-  if (usuario != undefined)
-  {
-    document.getElementById("infoUsuario").innerHTML = "Bienvenido/a " + usuario;
-    $("#infoUsuario").show();
-    getLogoutPanel();
-  }
+{
+    var usuario = localStorage.getItem("fb");
+    if (usuario != undefined)
+    {
+        document.getElementById("infoUsuario").innerHTML = "Bienvenido/a " + usuario;
+        $("#infoUsuario").show();
+        getLogoutPanel();
+    }
 });
 
 function getLogoutPanel()
 {
-  $("#linkLogin").remove();
-  var log = document.createElement("a");
-  log.setAttribute("id", "linkLogout");
-  log.setAttribute("href", "#");
-  log.innerHTML = "Cerrar Sesión";
-  document.getElementById("panelLogin").appendChild(log);
+    $("#linkLogin").remove();
+    var log = document.createElement("a");
+    log.setAttribute("id", "linkLogout");
+    log.setAttribute("href", "#");
+    log.innerHTML = "Cerrar Sesión";
+    document.getElementById("panelLogin").appendChild(log);
 
-  if (log.addEventListener)
-  {
-      log.addEventListener('click', logout, false);
-  }
-  else
-  {
-      log.attachEvent('onclick', logout);
-  }
-
+    if (log.addEventListener)
+    {
+        log.addEventListener('click', logout, false);
+    }
+    else
+    {
+        log.attachEvent('onclick', logout);
+    }
 }
 
 function logout()
 {
-  FB.getLoginStatus(function(response) {
-    if (response && response.status === 'connected') {
-        FB.logout(function(response) {
-            document.location.reload();
-        });
-    }
-  });
-  localStorage.removeItem("fb");
+    FB.getLoginStatus(function(response)
+    {
+        if (response && response.status === 'connected')
+        {
+            FB.logout(function(response)
+            {
+                document.location.reload();
+            });
+        }
+    });
+    localStorage.removeItem("fb");
 }
