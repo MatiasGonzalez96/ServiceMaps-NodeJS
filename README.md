@@ -8,6 +8,6 @@ Librerías Utilizadas:
 - jQuery UI 1.12.1
 - Google Maps API
 - Google Directions
-- Sweet Alerts
+- Sweet Alert
 
 Página: https://servicemaps.herokuapp.com/
