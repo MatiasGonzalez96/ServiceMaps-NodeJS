@@ -16,6 +16,14 @@ const logout = function(req, res) {
       res.redirect('/');
   };
 
+const facebook = passport.authenticate('facebook', {scope: ['email']});
+
+const facebookAuth = passport.authenticate('facebook', {failureRedirect: '/'});
+
+const facebookCallback = function(req, res) {
+  res.redirect('/');
+};
+
 module.exports = {
-   login, redirect, logout
+   login, redirect, logout, facebook, facebookAuth, facebookCallback
 };
