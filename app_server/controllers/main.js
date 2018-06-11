@@ -30,7 +30,8 @@ const servicios = function(req, res)
       } else {
         res.render('servicios', {
           title: 'Servicios',
-          servicio: servicio
+          servicio: servicio,
+          user: req.user
         });
       }
     })
@@ -45,7 +46,8 @@ const comentarios = function(req, res)
       } else {
         res.render('comentarios', {
           title: 'Comentarios',
-          servicio: servicio
+          servicio: servicio,
+          user: req.user
         });
       }
     })
