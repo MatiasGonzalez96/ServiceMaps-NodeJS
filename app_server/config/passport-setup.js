@@ -15,7 +15,7 @@ passport.deserializeUser((id, done) => {
 passport.use(new FacebookStrategy({
     clientID: '1071078366372805',
     clientSecret: '9a416635622646a3d42f8124302ed008',
-    callbackURL: 'https://servicemaps.herokuapp.com/auth/facebook/callback'
+    callbackURL: '/auth/facebook/callback'
   },
   function(accessToken, refreshToken, profile, done) {
     	process.nextTick(function(){
