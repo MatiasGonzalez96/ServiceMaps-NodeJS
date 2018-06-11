@@ -26,9 +26,8 @@ passport.use(new FacebookStrategy({
     				return done(null, user);
     			else {
     				var newUser = new User();
-    				newUserid = profile.id;
-    				newUser.token = accessToken;
-    				newUser.name = profile.name.givenName + ' ' + profile.name.familyName;
+    				newUser.id = profile.id;
+    				newUser.name = profile.displayName;
     				newUser.email = profile.emails[0].value;
 
     				newUser.save(function(err){
