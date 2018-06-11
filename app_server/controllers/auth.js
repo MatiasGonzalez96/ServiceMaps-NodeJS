@@ -7,6 +7,8 @@ const redirect = (passport.authenticate('facebook'),
     res.redirect('/');
   });
 
+const facebookCallback = passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/'});
+
 const logout = function(req, res) {
       req.logout();
       res.redirect('/');

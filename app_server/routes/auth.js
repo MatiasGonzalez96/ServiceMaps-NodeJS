@@ -10,6 +10,8 @@ router.get('/facebook/redirect', passport.authenticate('facebook'),(req, res) =>
     res.redirect('/');
 });
 
+router.get('/facebook/callback', auth.facebookCallback);
+
 router.get('/logout', auth.logout);
 
 module.exports = router;
