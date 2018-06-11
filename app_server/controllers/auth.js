@@ -15,5 +15,5 @@ const logout = function(req, res) {
   };
 
 module.exports = {
-   login, redirect, logout
+   login, redirect, logout, facebookCallback
 };
