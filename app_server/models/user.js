@@ -1,25 +1,20 @@
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
+// Modelo Usuario para la base de datos
 
-var userSchema = mongoose.Schema({
-	local: {
-		username: String,
-		password: String
-	},
-	facebook: {
-		id: String,
-		token: String,
-		email: String,
-		name: String
-	}
+// Mongoose es una libreria de Node que nos permite
+// conectarnos a una base de datos MongoDB y modelar un esquema
+// para ella.
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+// Campos que vamos a guardar en la base de datos
+var UserSchema = new Schema({
+	name				: String, // Nombre del usuario
+	provider		: String, // Cuenta del usuario (Twitter o Facebook en este ejemplo)
+	provider_id : {type: String, unique: true}, // ID que proporciona Twitter o Facebook
+	photo			 : String, // Avatar o foto del usuario
+	createdAt	 : {type: Date, default: Date.now} // Fecha de creación
 });
 
-userSchema.methods.generateHash = function(password){
-	return bcrypt.hashSync(password, bcrypt.genSaltSync(9));
-}
-
-userSchema.methods.validPassword = function(password){
-	return bcrypt.compareSync(password, this.local.password);
-}
-
-module.exports = mongoose.model('User', userSchema);
+// Exportamos el modelo 'User' para usarlo en otras
+// partes de la aplicación
+var User = mongoose.model('User', UserSchema);
