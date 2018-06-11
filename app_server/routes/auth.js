@@ -4,9 +4,11 @@ var passport = require('passport');
 
 const auth = require('../controllers/auth');
 
+router.get('/facebook', auth.login);
 
-router.get('/facebook', auth.facebook);
-router.get('/facebook/callback', auth.facebookAuth, auth.facebookCallback);
+router.get('/facebook/redirect', passport.authenticate('facebook'),(req, res) => {
+    res.redirect('/');
+});
 
 router.get('/logout', auth.logout);
 

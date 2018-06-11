@@ -1,7 +1,6 @@
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var User = require('../models/user');
-var configAuth = require('../config/auth');
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
@@ -14,23 +13,23 @@ passport.deserializeUser((id, done) => {
 });
 
 passport.use(new FacebookStrategy({
-    clientID: configAuth.facebookAuth.clientID,
-    clientSecret: configAuth.facebookAuth.clientSecret,
-    callbackURL: configAuth.facebookAuth.callbackURL
+    clientID: '1071078366372805',
+    clientSecret: '9a416635622646a3d42f8124302ed008',
+    callbackURL: '/auth/facebook/callback'
   },
   function(accessToken, refreshToken, profile, done) {
     	process.nextTick(function(){
-    		User.findOne({'facebook.id': profile.id}, function(err, user){
+    		User.findOne({'id': profile.id}, function(err, user){
     			if(err)
     				return done(err);
     			if(user)
     				return done(null, user);
     			else {
     				var newUser = new User();
-    				newUser.facebook.id = profile.id;
-    				newUser.facebook.token = accessToken;
-    				newUser.facebook.name = profile.name.givenName + ' ' + profile.name.familyName;
-    				newUser.facebook.email = profile.emails[0].value;
+    				newUserid = profile.id;
+    				newUser.token = accessToken;
+    				newUser.name = profile.name.givenName + ' ' + profile.name.familyName;
+    				newUser.email = profile.emails[0].value;
 
     				newUser.save(function(err){
     					if(err)
