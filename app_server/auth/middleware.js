@@ -1,6 +1,6 @@
 const isAuthenticated = function (req, res, next) {
 
-    if (req.isAuthenticated() && req.user.editor)
+    if (req.isAuthenticated())
         return next();
 
     res.redirect('/');
