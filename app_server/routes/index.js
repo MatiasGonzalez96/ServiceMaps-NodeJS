@@ -2,10 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 const ctrlMain = require('../controllers/main');
-const middleware = require('../auth/middleware');
 
 /* GET Index */
-router.get('/', middleware, ctrlMain.index);
+router.get('/', ctrlMain.index);
 
 /* GET Servicios */
 router.get('/servicios/:id', ctrlMain.servicios);

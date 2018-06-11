@@ -1,19 +1,37 @@
 const mongoose = require('mongoose');
 const Servicio = mongoose.model('Servicio');
+const User = mongoose.model('User');
 
 /* GET index page. */
 const index = function (req, res) {
   Servicio
     .find()
     .exec((err, servicios) => {
-      if (err) {
+      if (err)
+      {
         res.render('error', { error : err });
-      } else {
-        res.render('index', {
-          title: 'Service Maps',
-          servicios: servicios,
-          user: req.user 
-        });
+      }
+      else
+      {
+          if (req.user)
+          {
+              User.findOne({'_id': req.user._id}).exec((err, usuario) => {
+                  res.render('index', {
+                    title: 'Service Maps',
+                    servicios: servicios,
+                    user: usuario
+                  });
+              })
+          }
+          else
+          {
+              res.render('index', {
+                title: 'Service Maps',
+                servicios: servicios,
+                user: req.user
+              });
+          }
+
       }
     })
 };
