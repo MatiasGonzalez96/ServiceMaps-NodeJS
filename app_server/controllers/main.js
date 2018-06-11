@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Servicio = mongoose.model('Servicio');
-const User = mongoose.model('User');
+var User = require('../models/user');
 
 /* GET index page. */
 const index = function (req, res) {
