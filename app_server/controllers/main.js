@@ -3,6 +3,7 @@ const Servicio = mongoose.model('Servicio');
 
 /* GET index page. */
 const index = function (req, res) {
+    console.log(req.user);
   Servicio
     .find()
     .exec((err, servicios) => {
