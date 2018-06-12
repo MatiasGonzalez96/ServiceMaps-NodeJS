@@ -39,4 +39,3 @@ process.on('SIGTERM', () => {
 
 require('./servicios');
 require('./temas');
-require('./user');
