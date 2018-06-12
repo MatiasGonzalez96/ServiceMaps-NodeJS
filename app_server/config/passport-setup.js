@@ -20,16 +20,16 @@ passport.use(new FacebookStrategy({
   },
   function(accessToken, refreshToken, profile, done) {
     	process.nextTick(function(){
-    		User.findOne({'id': profile.id}, function(err, user){
+    		User.findOne({'facebookID': profile.id}, function(err, user){
     			if(err)
     				return done(err);
     			if(user)
     				return done(null, user);
     			else {
     				newUser = new User({
-                        id: profile.id,
-                        email: profile.emails[0].value,
-                        name: profile.displayName
+                        facebookID: profile.id,
+                        facebookEmail: profile.emails[0].value,
+                        facebookName: profile.displayName
                     });
 
                     newUser.save(function(err, newUser) {

@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 
 var userSchema = mongoose.Schema({
-	id: String,
-	email: String,
-	name: String
+	facebookID: String,
+	facebookEmail: String,
+	facebookName: String
 });
 
 const User = mongoose.model('User', userSchema);
