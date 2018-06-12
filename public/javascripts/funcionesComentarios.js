@@ -1,8 +1,7 @@
 
 $(function()
 {
-	var usuario = localStorage.getItem("fb");
-	if (usuario != undefined)
+	if (usuario != undefined && usuario != null)
 	{
 		document.getElementById("nombreUsuario").innerHTML += usuario;
 	}
