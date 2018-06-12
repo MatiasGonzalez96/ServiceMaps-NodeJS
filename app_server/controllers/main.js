@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Servicio = mongoose.model('Servicio');
+var User = require('../models/user');
 
 /* GET index page. */
 const index = function (req, res) {
@@ -43,15 +44,30 @@ const comentarios = function(req, res)
 {
     console.log(req.user);
     Servicio.findOne({ 'id': req.params.id }).exec((err, servicio) => {
-      if (err) {
-        res.render('error',{error : err});
-      } else {
-        res.render('comentarios', {
-          title: 'Comentarios',
-          servicio: servicio,
-          user: req.user
-        });
-      }
+    if (err)
+    {
+      res.render('error',{error : err});
+    }
+    else
+    {
+        User.findOne({ 'facebookID': req.user.facebookID }).exec((err, usuario) => {
+        if (err)
+        {
+            res.render('comentarios', {
+              title: 'Comentarios',
+              servicio: servicio,
+              user: req.user
+            });
+        }
+        else
+        {
+            res.render('comentarios', {
+              title: 'Comentarios',
+              servicio: servicio,
+              user: usuario
+            });
+        }
+    }
     })
 };
 
