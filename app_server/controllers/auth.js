@@ -13,7 +13,7 @@ const logout = function(req, res) {
       req.logout();
       var ruta = 'https://servicemaps.herokuapp.com/'+req.url;
       console.log(ruta);
-      res.redirect("/");
+      res.redirect(ruta);
 
   };
 
