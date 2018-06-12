@@ -11,6 +11,6 @@ router.get('/', ctrlMain.index);
 router.get('/servicios/:id', ctrlMain.servicios);
 
 /* GET Comentarios */
-router.get('/servicios/comentarios/:id', middleware, ctrlMain.comentarios);
+router.get('/servicios/comentarios/:id', ctrlMain.comentarios);
 
 module.exports = router;
