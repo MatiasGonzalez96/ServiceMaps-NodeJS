@@ -4,7 +4,7 @@ const Servicio = mongoose.model('Servicio');
 /* GET index page. */
 const index = function (req, res) {
     console.log(req.user);
-  Servicio
+    Servicio
     .find()
     .exec((err, servicios) => {
       if (err)
@@ -25,7 +25,7 @@ const index = function (req, res) {
 /* GET Servicios page. */
 const servicios = function(req, res)
 {
-  Servicio.findOne({ 'id': req.params.id }).exec((err, servicio) => {
+    Servicio.findOne({ 'id': req.params.id }).exec((err, servicio) => {
       if (err) {
         res.render('error',{error : err});
       } else {
@@ -41,7 +41,8 @@ const servicios = function(req, res)
 /* GET Comentarios page. */
 const comentarios = function(req, res)
 {
-  Servicio.findOne({ 'id': req.params.id }).exec((err, servicio) => {
+    console.log(req.user);
+    Servicio.findOne({ 'id': req.params.id }).exec((err, servicio) => {
       if (err) {
         res.render('error',{error : err});
       } else {
