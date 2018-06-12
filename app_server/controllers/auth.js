@@ -11,7 +11,9 @@ const facebookCallback = passport.authenticate('facebook', { successRedirect: '/
 
 const logout = function(req, res) {
       req.logout();
-      res.redirect('https://servicemaps.herokuapp.com/'+req.url);
+      var ruta = 'https://servicemaps.herokuapp.com/'+req.url;
+      alert(ruta);
+      res.redirect("/");
 
   };
 
