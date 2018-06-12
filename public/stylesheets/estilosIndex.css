@@ -127,11 +127,6 @@ body
   display: inline-block;
 }
 
-#infoUsuario
-{
-  display: none;
-}
-
 #panelFooter
 {
   height: auto;
