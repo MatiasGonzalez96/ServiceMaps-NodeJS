@@ -1,7 +1,7 @@
 
 $(function()
 {
-	if (usuario != undefined && usuario != null)
+	if (usuario != undefined && usuario != null && usuario != "")
 	{
 		document.getElementById("nombreUsuario").innerHTML += usuario;
 	}
