@@ -123,11 +123,6 @@ body
   background-color: dimgray;
 }
 
-#infoUsuario
-{
-  display: none;
-}
-
 #panelFooter
 {
   height: auto;

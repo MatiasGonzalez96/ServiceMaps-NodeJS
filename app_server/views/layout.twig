@@ -30,7 +30,9 @@
         <div class="topnav">
             <!-- Centered link -->
             <div class="topnav-centered">
+                {% if user %}
                     <a id="infoUsuario" class="active">{{ user.facebookName }}</a>
+                {% endif %}
             </div>
             <!-- Left-aligned links (default) -->
             <a id="linkInicio" href="#" class="active">Inicio</a>
