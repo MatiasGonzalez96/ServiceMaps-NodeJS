@@ -55,12 +55,11 @@ body
 
 #panelBanner
 {
-  height: 130px;
-  width: 860px;
+  height: 180px;
+  width: 230px;
   margin: 50px auto;
   margin-bottom: 100px;
   border: none;
-  background-color: grey;
   padding: 5px;
 }
 
