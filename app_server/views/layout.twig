@@ -37,11 +37,8 @@
             <a id="linkEstilo" href="#" >Cambiar Estilo</a>
             <!-- Right-aligned links -->
             <div class="topnav-right" id="panelLogin">
-                {% if user %}
-                    <a id="linkLogin" href="/auth/logout">Cerrar Sesión</a>
-                {% else %}
-                    <a id="linkLogin" href="/auth/facebook">Iniciar Sesión</a>
-                {% endif %}
+                <a id="linkLogin" href="/auth/facebook">Iniciar Sesión</a>
+                <a id="linkLogin" href="/auth/logout">Cerrar Sesión</a>                    
             </div>
         </div>
 

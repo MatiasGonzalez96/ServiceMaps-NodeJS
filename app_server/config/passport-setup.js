@@ -34,7 +34,7 @@ passport.use(new FacebookStrategy({
 
                     newUser.save(function(err, newUser) {
                         if(err) return done(err);
-                        done(null,newUser);
+                        done(null, newUser);
                     });
     			}
     		});
