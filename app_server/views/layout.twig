@@ -30,15 +30,20 @@
         <div class="topnav">
             <!-- Centered link -->
             <div class="topnav-centered">
-                <a id="infoUsuario" class="active">{{ user.facebookName }}</a>
+                {% if user %}
+                    <a id="infoUsuario" class="active">{{ user.facebookName }}</a>
+                {% endif %}
             </div>
             <!-- Left-aligned links (default) -->
             <a id="linkInicio" href="#" class="active">Inicio</a>
             <a id="linkEstilo" href="#" >Cambiar Estilo</a>
             <!-- Right-aligned links -->
             <div class="topnav-right" id="panelLogin">
-                <a id="linkLogin" href="/auth/facebook">Iniciar Sesión</a>
-                <a id="linkLogin" href="/auth/logout">Cerrar Sesión</a>
+                {% if user %}
+                    <a id="linkLogin" href="/auth/logout">Cerrar Sesión</a>
+                {% else %}
+                    <a id="linkLogin" href="/auth/facebook">Iniciar Sesión</a>
+                {% endif %}
             </div>
         </div>
 
