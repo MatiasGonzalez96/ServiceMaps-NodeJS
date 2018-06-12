@@ -7,11 +7,12 @@ const redirect = (passport.authenticate('facebook'),
     res.redirect('/');
   });
 
-const facebookCallback = passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/'});
+const facebookCallback = passport.authenticate('facebook', { successRedirect: 'https://servicemaps.herokuapp.com/'+req.url, failureRedirect: '/'});
 
 const logout = function(req, res) {
       req.logout();
-      res.redirect('/');
+      res.redirect('https://servicemaps.herokuapp.com/'+req.url);
+
   };
 
 module.exports = {
