@@ -7,7 +7,7 @@ const redirect = (passport.authenticate('facebook'),
     res.redirect('/');
   });
 
-const facebookCallback = passport.authenticate('facebook', { successRedirect: 'https://servicemaps.herokuapp.com/'+req.url, failureRedirect: '/'});
+const facebookCallback = passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/'});
 
 const logout = function(req, res) {
       req.logout();
